@@ -16,15 +16,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-function check () {
-    if [[ ! -e "$POLYGLOT_SPHINX_CONF_DIR/conf.py" ]]; then
-        fail "NOT FOUND: $POLYGLOT_SPHINX_CONF_DIR/conf.py"
-    fi
-}
-
 function main () {
-    SPHINX_OUT="$POLYGLOT_DOCS/sphinx"
-
     # Parse args:
     while [[ $# -gt 0 ]]; do
         case $1 in
@@ -46,27 +38,8 @@ function main () {
 
     fname=$(basename "${BASH_SOURCE[0]}")
     header "($HOOK_NUM): $fname.\n* Args: " "$@"
-    subhead "[python] Building Sphinx"
-    echo "- config location: ${POLYGLOT_SPHINX_CONF_DIR}"
-    echo "- out location: ${SPHINX_OUT}"
-    echo "- builder: ${SPHINX_BUILDER:-html}"
-    echo ""
 
-    check
-    if [[ -d "${SPHINX_OUT}" ]]; then
-        rm -r "${SPHINX_OUT}"
-    fi
-    uv run --frozen sphinx-build \
-        --verbose \
-        --write-all \
-        --fresh-env \
-        --conf-dir "$POLYGLOT_SPHINX_CONF_DIR" \
-        --doctree-dir "$SPHINX_OUT/.doctrees" \
-        --warning-file "$LOG_DIR/sphinx.log" \
-        --builder "${SPHINX_BUILDER:-html}" \
-        "$POLYGLOT_SRC" \
-        "$SPHINX_OUT"
-        # || fail "Sphinx Failed"
+    fail "TODO: GNU Global"
 }
 
 main "$@"
