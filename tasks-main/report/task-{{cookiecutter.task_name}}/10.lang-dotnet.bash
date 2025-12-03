@@ -16,4 +16,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-polyglot lang dotnet report "$@"
+if ( polyglot check lang-dotnet ); then
+    polyglot lang dotnet report "$@"
+fi

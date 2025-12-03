@@ -16,4 +16,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-polyglot lang kotlin doc "$@"
+if ( polyglot check lang-kotlin ); then
+    polyglot lang kotlin doc "$@"
+fi

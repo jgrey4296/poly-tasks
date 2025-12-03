@@ -16,4 +16,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-polyglot tool mdbook doc "$@"
+if ( polyglot check tool-mdbook ); then
+    polyglot tool mdbook doc "$@"
+fi

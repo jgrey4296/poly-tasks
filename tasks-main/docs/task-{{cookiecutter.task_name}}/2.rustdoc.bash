@@ -16,4 +16,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-polyglot lang rust doc "$@"
+if ( polyglot check lang-rust ); then
+    polyglot lang rust doc "$@"
+fi

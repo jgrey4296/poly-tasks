@@ -11,11 +11,28 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 subhead "Validating Utility Languages"
-polyglot lang clingo validate "$@"
-polyglot lang csound validate "$@"
-polyglot lang octave validate "$@"
-polyglot lang rego validate "$@"
-polyglot lang prolog validate "$@"
-polyglot lang soar validate "$@"
-polyglot lang z3 validate "$@"
-polyglot lang sclang validate "$@"
+
+if (polyglot check lang-clingo ); then
+    polyglot lang clingo validate "$@"
+fi
+if (polyglot check lang-csound ); then
+    polyglot lang csound validate "$@"
+fi
+if (polyglot check lang-octave ); then
+    polyglot lang octave validate "$@"
+fi
+if (polyglot check lang-rego ); then
+    polyglot lang rego validate "$@"
+fi
+if (polyglot check lang-prolog ); then
+    polyglot lang prolog validate "$@"
+fi
+if (polyglot check lang-soar ); then
+    polyglot lang soar validate "$@"
+fi
+if (polyglot check lang-z3 ); then
+    polyglot lang z3 validate "$@"
+fi
+if (polyglot check lang-sclang ); then
+    polyglot lang sclang validate "$@"
+fi

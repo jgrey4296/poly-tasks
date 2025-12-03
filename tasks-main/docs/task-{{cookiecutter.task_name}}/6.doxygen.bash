@@ -16,4 +16,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-polyglot tool doxygen doc "$@"
+if ( polyglot check tool-doxygen ); then
+    polyglot tool doxygen doc "$@"
+fi

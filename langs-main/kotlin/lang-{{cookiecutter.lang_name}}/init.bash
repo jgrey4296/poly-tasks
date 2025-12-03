@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # init.bash -*- mode: sh -*-
 #set -o errexit
-set -o nounset
+# set -o nounset # disabled because sdkman has an unset var
 set -o pipefail
 
 

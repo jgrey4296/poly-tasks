@@ -16,4 +16,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-polyglot lang rocq doc "$@"
+if ( polyglot check lang-rocq ); then
+    polyglot lang rocq doc "$@"
+fi

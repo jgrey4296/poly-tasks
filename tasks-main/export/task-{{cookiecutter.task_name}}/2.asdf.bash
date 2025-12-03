@@ -16,4 +16,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-polyglot tool asdf export
+if ( polyglot check tool-asdf ); then
+    polyglot tool asdf export
+fi

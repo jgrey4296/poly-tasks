@@ -12,10 +12,24 @@ fi
 
 subhead "Validating Main Languages"
 
-polyglot lang python validate "$@"
-polyglot lang rust validate "$@"
-polyglot lang dotnet validate "$@"
-polyglot lang elixir validate "$@"
-polyglot lang kotlin validate "$@"
-polyglot lang godot validate "$@"
-polyglot land lisp validate "$@"
+if (polyglot check lang-python ); then
+    polyglot lang python validate "$@"
+fi
+if (polyglot check lang-rust ); then
+    polyglot lang rust validate "$@"
+fi
+if (polyglot check lang-dotnet ); then
+    polyglot lang dotnet validate "$@"
+fi
+if (polyglot check lang-elixir ); then
+    polyglot lang elixir validate "$@"
+fi
+if (polyglot check lang-kotlin ); then
+    polyglot lang kotlin validate "$@"
+fi
+if (polyglot check lang-godot ); then
+    polyglot lang godot validate "$@"
+fi
+if (polyglot check lang-lisp ); then
+    polyglot land lisp validate "$@"
+fi

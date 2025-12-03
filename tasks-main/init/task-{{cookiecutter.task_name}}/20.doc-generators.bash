@@ -16,5 +16,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-
-polyglot lang tex init
+if ( polyglot check lang-tex ); then
+    polyglot lang tex init
+fi

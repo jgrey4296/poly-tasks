@@ -11,3 +11,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 subhead "TODO Validating Tools"
+
+if ( polyglot check tool-diagrams ); then
+    polyglot tool diagrams validate
+fi

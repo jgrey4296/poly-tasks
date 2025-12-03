@@ -16,5 +16,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-
-polyglot lang elixir doc "$@"
+if ( polyglot check lang-elixir ); then
+    polyglot lang elixir doc "$@"
+fi
