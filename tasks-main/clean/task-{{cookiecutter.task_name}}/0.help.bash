@@ -38,7 +38,7 @@ options:
 }
 
 function check-environment () {
-    subhead "Checking Environment"
+    tdot "[clean]" "Checking Environment"
     has_failed=0
 
     if [[ -z "${BIBLIO_TODO:-}" ]]; then

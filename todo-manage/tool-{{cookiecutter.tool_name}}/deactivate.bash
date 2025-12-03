@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#  polyglot-deactivate -*- mode: sh -*-
+#set -o errexit
+set -o nounset
+set -o pipefail
+
+# shellcheck disable=SC1091
+source "$POLY_SRC/lib/lib-util.bash"
+if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
+    # shellcheck disable=SC1091
+    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
+fi
+
+if [[ -e "$PWD/.active" ]]; then
+    tdot "[manage]" "Deactivating $PWD"
+    rm "$PWD/.active"
+else
+    tdot "[manage]" "Directory not active anyway"
+fi

@@ -10,6 +10,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
+subhead "Validating Utility Languages"
 polyglot lang clingo validate "$@"
 polyglot lang csound validate "$@"
 polyglot lang octave validate "$@"

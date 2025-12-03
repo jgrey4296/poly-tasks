@@ -26,6 +26,6 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ "$do_clean" -gt 0 ]] && [[ -d "${site_out}" ]]; then
-    echo -e "-- Removing old output directory"
+    tdot "[docs]" "Removing old output directory"
     rm -r "${site_out}"
 fi

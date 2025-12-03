@@ -31,12 +31,11 @@ options:
 
 
 "
-    return "${PRINTED_HELP:-2}"
-    # exit "${PRINTED_HELP:-2}"
+    exit "${PRINTED_HELP:-2}"
 }
 
 function check-environment () {
-    subhead "Checking Environment"
+    tdot "[change]" "Checking Environment"
     has_failed=0
 
     # if [[ -z "${BIBLIO_LIB:-}" ]]; then

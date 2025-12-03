@@ -16,8 +16,16 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-function main () {
+function check () {
+    if [[ -z "$POLYGLOT_TEMP" ]]; then
+        fail "polyglot temp is not set"
+    fi
+    if [[ ! -d "$POLYGLOT_TEMP" ]]; then
+        fail "polyglot temp does not exist"
+    fi
+}
 
+function main () {
     # Parse args:
     while [[ $# -gt 0 ]]; do
         case $1 in
@@ -38,17 +46,9 @@ function main () {
     done
 
     fname=$(basename "${BASH_SOURCE[0]}")
-    header "($HOOK_NUM): $fname.\n* Args: " "$@"
-
-    if [[ -z "$POLYGLOT_TEMP" ]]; then
-        fail "polyglot temp is not set"
-    fi
-    if [[ ! -d "$POLYGLOT_TEMP" ]]; then
-        fail "polyglot temp does not exist"
-    fi
-
+    tdot "[clean]" "($HOOK_NUM): $fname.\n* Args: " "$@"
+    check
     rm -rf "$POLYGLOT_TEMP"
-    
 }
 
 main "$@"

@@ -7,5 +7,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     # shellcheck disable=SC1091
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
-subhead "Generating Changelog"
+
+tdot "[release]" "Generating Towncrier Changelog"
 towncrier build --yes

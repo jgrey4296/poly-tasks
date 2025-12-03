@@ -10,6 +10,8 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
+subhead "Validating Main Languages"
+
 polyglot lang python validate "$@"
 polyglot lang rust validate "$@"
 polyglot lang dotnet validate "$@"

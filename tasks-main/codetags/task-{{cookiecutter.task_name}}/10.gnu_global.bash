@@ -16,30 +16,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-function main () {
-    # Parse args:
-    while [[ $# -gt 0 ]]; do
-        case $1 in
-            -t|--target)
-                echo "Target: $2"
-                ;;
-            --bloo=*)
-                echo "Assignment: $1"
-                IFS="=" read -ra KEYVAL <<< "$1"
-                echo "Key: ${KEYVAL[0]/--/}"
-                echo "Val: ${KEYVAL[1]}"
-                ;;
-            *) # Positional
-                echo "Positional: $1"
-                ;;
-        esac
-        shift
-    done
-
-    fname=$(basename "${BASH_SOURCE[0]}")
-    header "($HOOK_NUM): $fname.\n* Args: " "$@"
-
-    fail "TODO: GNU Global"
-}
-
-main "$@"
+tdot "[codetags]" "($HOOK_NUM): $fname.\n* Args: " "$@"
+tdot "[codetags]" "TODO: GNU Global"

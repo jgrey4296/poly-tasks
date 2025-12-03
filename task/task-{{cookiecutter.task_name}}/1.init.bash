@@ -37,7 +37,7 @@ function main () {
     done
 
     fname=$(basename "${BASH_SOURCE[0]}")
-    header "($HOOK_NUM): $fname.\n* Args: " "$@"
+    tdot "[{{cookiecutter.task_name}}]" "($HOOK_NUM): $fname.\n* Args: " "$@"
 
     fail "TODO: {{cookiecutter.task_name}} implementation"
 }

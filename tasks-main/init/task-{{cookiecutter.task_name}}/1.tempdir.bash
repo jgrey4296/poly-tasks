@@ -16,4 +16,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
+tdot "[init]" "Making POLYGLOT_TEMP"
 mkdir -p "$POLYGLOT_TEMP"

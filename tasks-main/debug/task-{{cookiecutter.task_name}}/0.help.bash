@@ -35,7 +35,7 @@ options:
 }
 
 function check-environment () {
-    subhead "Checking Environment"
+    tdot "[debug]" "Checking Environment"
     has_failed=0
     # if [[ -z "${BIBLIO_LIB:-}" ]]; then
     #     has_failed=1

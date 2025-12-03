@@ -10,3 +10,5 @@ source "$POLY_SRC/lib/lib-util.bash"
 if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
+
+tdot "[change]" "TODO: git cliff"
