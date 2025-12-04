@@ -26,7 +26,7 @@ import atexit # for @atexit.register
 import faulthandler
 # ##-- end stdlib imports
 
-import task_utils as _util
+import _task_utils as _util
 
 # ##-- types
 # isort: off

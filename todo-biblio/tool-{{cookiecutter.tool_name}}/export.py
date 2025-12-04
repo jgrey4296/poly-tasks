@@ -59,7 +59,7 @@ logging = logmod.getLogger(__name__)
 ##-- end logging
 
 from os import environ
-import task_utils as _util
+import _task_utils as _util
 # Vars:
 BIBLIO_TEMP : Final[pl.Path] = pl.Path(environ['POLYGLOT_TEMP'])
 DEFAULT_OUT           : Final[pl.Path]  = BIBLIO_TEMP / "tex"

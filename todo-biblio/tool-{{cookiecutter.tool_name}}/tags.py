@@ -38,7 +38,7 @@ with warnings.catch_warnings():
 
 from jgdv.files.tags import SubstitutionFile, TagFile
 from jgdv.files.bookmarks import BookmarkCollection
-import task_utils as _util
+import _task_utils as _util
 
 # ##-- types
 # isort: off

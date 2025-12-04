@@ -33,7 +33,7 @@ import bibble._interface as API
 from bibble.io import Reader
 from bibble.io import Writer
 from jgdv.files.tags import SubstitutionFile
-import task_utils as _util
+import _task_utils as _util
 
 # ##-- types
 # isort: off

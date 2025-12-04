@@ -33,7 +33,7 @@ import tqdm
 import bibble as BM
 import bibble._interface as API
 from bibble.io import Writer, Reader
-import task_utils as _util
+import _task_utils as _util
 
 # ##-- types
 # isort: off
