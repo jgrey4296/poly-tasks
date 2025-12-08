@@ -14,4 +14,12 @@ tdot "[rocq]" "TODO: install ocaml"
 
 tdot "[rocq]" "TODO: install opam"
 
-tdot "[rocq]" "TODO: install rocq"
+if [[ -e "$POLYGLOT_ROOT/.opam" ]]; then
+    tdot "[rocq]" "Initialising local opam switch"
+    opam switch import "$POLYGLOT_ROOT/.opam"
+else
+    opam install ocaml-lsp-server odoc ocamlformat utop dune
+    opam pin rocq-prover 9.0.0
+    # https://rocq-prover.org/docs/using-opam#platform
+    opam repo add rocq-released https://rocq-prover.org/opam/released
+fi
