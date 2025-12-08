@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# extract-all.bash -*- mode: sh -*-
+# gen-zip.bash -*- mode: sh -*-
 #set -o errexit
 set -o nounset
 set -o pipefail
@@ -21,7 +21,7 @@ function print-help () {
            ;;
     esac
     echo -e "
-usage: polyglot tool assets extract [-h] [args ...]
+usage: polyglot tool assets pack [-h] [args ...]
 
 positional arguments:
 args          :
@@ -34,7 +34,7 @@ options:
     exit "${PRINTED_HELP:-2}"
 }
 
-
-tdot "[assets]" "TODO: Extracting all"
-
-# extract all files from the asset zip
+base=$(basename "$PWD")
+tdot "[pack]" "packing $base into a zip file."
+zip -r "../${base}.zip" "../$base"
+tdot "[pack]" "Complete."
