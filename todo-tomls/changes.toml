@@ -1,0 +1,7 @@
+
+[polyglot.docgen.changelog]
+suffixes  = []
+config    = ["towncrier.toml"]
+files     = ["CHANGELOG.md"]
+dirs      = ["_changes"]
+active    = []

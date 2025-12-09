@@ -1,0 +1,6 @@
+
+[polyglot.rocq]
+suffixes  = [".v"]
+config    = ["_CoqProject"]
+prefix    = "rq_"
+active    = []

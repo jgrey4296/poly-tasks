@@ -1,0 +1,6 @@
+
+[polyglot.prolog]
+suffixes  = [".pl"]
+config    = []
+prefix    = "pl_"
+active    = []

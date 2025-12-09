@@ -1,0 +1,10 @@
+
+[polyglot.rust]
+suffixes  = [".rs"]
+config    = [
+          "build.rs", "Cargo.toml", ".cargo/config.toml",
+          "clippy.toml", "rust-toolchain.toml", ".rustfmt.toml",
+          "Cargo.lock",
+]
+prefix    = "rs_"
+active    = []

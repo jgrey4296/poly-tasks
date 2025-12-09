@@ -1,0 +1,6 @@
+
+[polyglot.docgen.sphinx]
+suffixes  = [".rst"]
+config    = ["src/_sphinx/conf.py"]
+dirs      = ["_sphinx"]
+active    = []

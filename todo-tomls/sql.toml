@@ -1,0 +1,7 @@
+
+
+[polyglot.sql]
+suffixes = []
+config = []
+prefix = "sql_"
+active = []

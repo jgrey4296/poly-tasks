@@ -1,0 +1,5 @@
+[polyglot.python]
+suffixes  = [".py"]
+config    = ["pyproject.toml", "ruff.toml", "uv.lock"]
+prefix    = "py_"
+active    = []

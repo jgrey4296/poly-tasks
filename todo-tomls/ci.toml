@@ -1,0 +1,14 @@
+#  CI Workflows --------------------------------------------------
+
+[polyglot.github]
+dirs = [".github"]
+
+[polyglot.gitlab]
+files = [".gitlab-ci.yml"]
+dirs  = [".gitlab"]
+
+[polyglot.precommit]
+files = [".pre-commit-config.yaml"]
+
+[polyglot.tox]
+files  = ["tox.toml"]
