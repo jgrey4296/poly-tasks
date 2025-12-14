@@ -49,7 +49,7 @@ function luatex-pass () {
     shift 3
 
     # Takes 1 arg: The pass number. the rest arg global args
-    tdot "[tex]" "Pass $1: LuaLaTeX Compiling $file in $localdir"
+    tdot "[tex]" "Pass $pass: LuaLaTeX Compiling $file in $localdir"
     pushd "$localdir" || fail "lualatex pass failed to pushd"
     _ARGS=(
         "--lua=$LUA_FILE"
@@ -57,7 +57,7 @@ function luatex-pass () {
         "--output-directory=$TEX_OUT"
     )
 
-    case "$VERBOSE" in
+    case "${VERBOSE:-0}" in
         0)
             echo "..."
             lualatex "${_ARGS[@]}" "${file}.tex" > /dev/null || echo "Pass Exit Value: $?"
@@ -75,7 +75,7 @@ function bibtex-pass () {
     file="$3"
     tdot "[tex]" "Pass $pass: Bibtex $file in $TEX_OUT"
     pushd "$TEX_OUT" || fail "bibtex pass failed to pushd"
-    case "$VERBOSE" in
+    case "${VERBOSE:-0}" in
         0)
             BIBINPUTS="$TEX_OUT:$localdir:${POLYGLOT_DATA:-}:${BIBINPUTS:-}" bibtex "$file" > /dev/null
             ;;
