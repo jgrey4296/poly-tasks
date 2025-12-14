@@ -14,6 +14,6 @@ fi
 DEFAULT_FILE="main.cep"
 shift
 tdot "[ceptre]" "TODO: run"
-pushd "$POLYGLOT_SRC/_utilities/cep" || fail "Failed to go to dir"
+pushd "$POLYGLOT_SRC/_ai_and_logic/cep" || fail "Failed to go to dir"
 ceptre "${1:-$DEFAULT_FILE}"
 popd || fail "Failed to return from dir"

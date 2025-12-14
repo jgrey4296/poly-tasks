@@ -62,7 +62,7 @@ function run-program () {
 
     tdot "[rego]" "Running: $target/$file"
     # tee redirects to a file and stdout
-    pushd "$POLYGLOT_SRC/_utilities/rego" || fail "Failed to go to rego dir"
+    pushd "$POLYGLOT_SRC/_ai_and_logic/rego" || fail "Failed to go to rego dir"
     opa eval -d "$file" -i "$data" "${_args}" | tee "$POLYGLOT_TEMP/rego/$target-$file.json"
     popd || fail "Failed to return from rego dir"
 
@@ -77,7 +77,7 @@ function main () {
     esac
     shift 2
     _ARGS=("$@")
-    check-target "_utilities/rego" "$file"
+    check-target "_ai_and_logic/rego" "$file"
     run-program 0 "$target" "$file" "${_ARGS[@]}"
     handle-result "$?"
     exit "$?"

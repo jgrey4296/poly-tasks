@@ -60,7 +60,7 @@ function run-program () {
 
     mkdir -p "$POLYGLOT_TEMP/z3"
     tdot "[z3]" "Running: $file"
-    z3 "${_ARGS[@]}" "$POLYGLOT_SRC/_utilities/z3/$file" | tee "$POLYGLOT_TEMP/z3/z3-$file.result"
+    z3 "${_ARGS[@]}" "$POLYGLOT_SRC/_ai_and_logic/z3/$file" | tee "$POLYGLOT_TEMP/z3/z3-$file.result"
 }
 
 function main () {
@@ -73,7 +73,7 @@ function main () {
     esac
     shift 2
     _ARGS=("$@")
-    check-target "_utilifies/z3" "$file"
+    check-target "_utilities/z3" "$file"
     run-program "$file" "${_ARGS[@]}"
     handle-result "$?"
     exit "$?"

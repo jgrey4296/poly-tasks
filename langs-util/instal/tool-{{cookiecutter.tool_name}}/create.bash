@@ -12,7 +12,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 PGLANG="instal"
-TARGET="$POLYGLOT_SRC/_utilities/inst"
+TARGET="$POLYGLOT_SRC/_ai_and_logic/inst"
 
 tdot "[$PGLANG]" "creating a workspace member in $TARGET"
 

@@ -11,4 +11,4 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 tdot "[z3]" "Validating"
-z3 "$POLYGLOT_SRC/_utilities/z3/main.z3" || fail "Z3 failed"
+z3 "$POLYGLOT_SRC/_ai_and_logic/z3/main.z3" || fail "Z3 failed"

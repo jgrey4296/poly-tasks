@@ -15,7 +15,7 @@ DEFAULT_CONFIG="lib.yaml"
 
 tdot "[sclang]" "Running"
 
-pushd "$POLYGLOT_SRC/_utilities/sc" || fail "Failed to go to sclang dir"
+pushd "$POLYGLOT_SRC/_music/sc" || fail "Failed to go to sclang dir"
    sclang \
     -l "$DEFAULT_CONFIG" \
     -r -s \

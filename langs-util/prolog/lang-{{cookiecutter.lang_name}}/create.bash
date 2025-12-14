@@ -12,7 +12,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 PGLANG="prolog"
-TARGET="$POLYGLOT_SRC/_utilities/pl"
+TARGET="$POLYGLOT_SRC/_ai_and_logic/pl"
 
 tdot "[$PGLANG]" "creating a workspace member in $TARGET"
 

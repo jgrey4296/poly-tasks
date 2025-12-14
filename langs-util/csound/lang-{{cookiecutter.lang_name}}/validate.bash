@@ -13,5 +13,5 @@ fi
 tdot "[csound]" "Validating"
 csound \
     -o .temp/csound/blah.wav \
-    src/_utilities/csd/main.csd \
+    src/_music/csd/main.csd \
     || fail "Csound Failed"

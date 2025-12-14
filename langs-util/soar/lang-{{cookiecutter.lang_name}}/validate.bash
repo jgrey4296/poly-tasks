@@ -11,4 +11,4 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 tdot "[soar]" "TODO: Validate"
-# soar -s "$POLYGLOT_SRC/_utilities/soar/main.soar" run || fail "Soar Failed"
+# soar -s "$POLYGLOT_SRC/_ai_and_logic/soar/main.soar" run || fail "Soar Failed"

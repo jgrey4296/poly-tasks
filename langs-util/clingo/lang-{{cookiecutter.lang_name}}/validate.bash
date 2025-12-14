@@ -11,5 +11,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 tdot "[clingo]" "Validating"
-clingo src/_utilities/asp/main.lp
+clingo src/_ai_and_logic/asp/main.lp
 # TODO handle the return code
