@@ -36,4 +36,13 @@ options:
 }
 
 
+[[ -z "${POLYGLOT_BACKUP_TARGET:-}" ]] || fail "No POLYGLOT_BACKUP_TARGET set"
+
 tdot "[assets]" "TODO: backup assets"
+rsync --archive --progress "$POLYGLOT_ROOT" "$POLYGLOT_BACKUP_TARGET"
+
+
+tdot "[assets]" "TODO: test zips/gzips
+# zip --test ?
+# gzip --test ?
+

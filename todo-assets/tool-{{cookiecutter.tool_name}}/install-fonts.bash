@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# gen-zip.bash -*- mode: sh -*-
+# install-fonts.bash -*- mode: sh -*-
 #set -o errexit
 set -o nounset
 set -o pipefail
@@ -21,7 +21,9 @@ function print-help () {
            ;;
     esac
     echo -e "
-usage: polyglot tool assets pack [-h] [args ...]
+usage: polyglot tool assets install-fonts [-h] [args ...]
+
+Install all .ttf fonts
 
 positional arguments:
 args          :
@@ -34,11 +36,7 @@ options:
     exit "${PRINTED_HELP:-2}"
 }
 
-shift
-target="$1"
-shift
-mkdir -p "$POLYGLOT_ROOT/.temp"
-name=$(basename "$target")
-tdot "[pack]" "packing $target into zip file: .temp/$name.zip"
-zip -r "$POLYGLOT_ROOT/.temp/$name.zip" "$POLYGLOT_ROOT/$target"
-tdot "[pack]" "Complete."
+tdot "[fonts]" "TODO: install fonts"
+
+# cp *.ttf "$HOME/.local/share/fonts"
+# fc-cache -f -v
