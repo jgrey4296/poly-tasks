@@ -63,6 +63,11 @@ TEMPLATE_DIR  : Final[pl.Path]  = pl.Path("templates_")
 WINDOW_SIZE   : Final[int]      = 10
 SUB_GLOB_1    : Final[str]      = "*/*.sub"
 SUB_GLOB_2    : Final[str]      = "*.sub"
+
+ZERO_ZERO_ONE  : Final[float]            = 0.01
+ZERO_ONE       : Final[float]            = 0.1
+HUNDRED        : Final[int]              = 100
+TEN            : Final[int]              = 10
 # Body:
 
 def load_tags(source:pl.Path, *, norm:bool=True) -> SubstitutionFile:
@@ -84,7 +89,9 @@ def collect(source:pl.Path, *, glob:str="*.bib") -> list[pl.Path]:
     if source.is_file():
         return [source]
 
+    print(f"- Collecting: {source}...")
     results = source.glob(glob)
+    print("")
     return list(sorted(results))
 
 def init_jinja(dir:Maybe[pl.Path]=None) -> jinja2.Environment:
@@ -103,3 +110,10 @@ def window_collection(i:int, coll:list) -> list[pl.Path]:
     start   = WINDOW_SIZE * i
     window  = coll[start:(start + WINDOW_SIZE)]
     return window
+
+
+def year_to_prefix(year:int) -> pl.Path:
+    """ eg: 1999 -> 1900/1990 """
+    century  = int(year * ZERO_ZERO_ONE) * HUNDRED
+    decade   = int(year * ZERO_ONE) * TEN
+    return pl.Path(f"{century}/{decade}")

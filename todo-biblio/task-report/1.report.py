@@ -36,7 +36,7 @@ import bibble._interface as API
 from bibble.io import Reader
 from bibble.fields._interface import AccumulationBlock
 from bibtexparser.model import Entry
-import _task_utils as _util
+import task_utils as _util
 
 # ##-- types
 # isort: off

@@ -38,7 +38,7 @@ with warnings.catch_warnings():
 
 from jgdv.files.tags import SubstitutionFile, TagFile
 from jgdv.files.bookmarks import BookmarkCollection
-import _task_utils as _util
+import task_utils as _util
 
 # ##-- types
 # isort: off
@@ -75,7 +75,7 @@ logging = logmod.getLogger(__name__)
 from os import environ
 # Vars:
 BIBLIO_ROOT  : Final[pl.Path]  = pl.Path(environ['POLYGLOT_ROOT'])
-BIBLIO_TEMP  : Final[pl.Path]  = pl.Path(envirion['POLYGLOT_TEMP'])
+BIBLIO_TEMP  : Final[pl.Path]  = pl.Path(environ['POLYGLOT_TEMP'])
 BOOKMARKS    : Final[pl.Path]  = pl.Path(environ['BIBLIO_TOTAL_BOOKMARKS'])
 LIB_ROOT     : Final[pl.Path]  = pl.Path(environ['BIBLIO_LIB'])
 MAIN_BIB     : Final[pl.Path]  = BIBLIO_ROOT / "main"
@@ -103,6 +103,7 @@ parser.add_argument("targets", nargs='*')
 ##--| Body
 
 def get_tags_from_bookmarks(target:pl.Path) -> TagFile:
+    print("Collecting Tags from bookmarks...")
     bookmarks = BookmarkCollection.read(target)
     bkmk_tags = TagFile()
     for bkmk in bookmarks:
@@ -111,6 +112,7 @@ def get_tags_from_bookmarks(target:pl.Path) -> TagFile:
         return bkmk_tags
 
 def build_reader_and_writer() -> tuple[Reader, API.Writer_p]:
+    print("Building Bibtex Reader/Writer...")
     stack = BM.PairStack()
     extra = BM.metadata.DataInsertMW()
     stack.add(read=[extra,
@@ -130,6 +132,7 @@ def build_reader_and_writer() -> tuple[Reader, API.Writer_p]:
 
 def collate_tags(subs:SubstitutionFile, raw:TagFile, bkmks:TagFile) -> tuple[TagFile, TagFile]:
     """  """
+    print("Collating Tags...")
     canon = subs.canonical()
     total = TagFile()
     fresh = TagFile()
@@ -163,6 +166,7 @@ def main() -> None:
     # Load Tags from bib files
     reader, writer  = build_reader_and_writer()
     raw             = TagFile()
+    print("Reading Bibtex files...")
     for bib in targets:
         lib = reader.read(bib)
         match lib.blocks:
@@ -176,7 +180,7 @@ def main() -> None:
         (output_base / TAGS_CANON).write_text(str(canon))
         (output_base / TAGS_KNOWN).write_text(str(raw))
         (output_base / TAGS_FRESH).write_text(str(fresh))
-        print("Finished")
+        print(f"Tag files writen in: {output_base}")
 
 ##-- ifmain
 if __name__ == "__main__":

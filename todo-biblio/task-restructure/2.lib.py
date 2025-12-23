@@ -33,7 +33,7 @@ import tqdm
 import bibble as BM
 import bibble._interface as API
 from bibble.io import Writer, Reader
-import _task_utils as _util
+import task_utils as _util
 
 # ##-- types
 # isort: off
@@ -78,21 +78,17 @@ NEW_ROOT       : Final[pl.Path]          = pl.Path(LIB_ROOT.parent / "pdfs_struc
 GLOB_STR       : Final[str]              = "*.bib"
 CHUNK_SIZE     : Final[int]              = 100
 CENTURY_RANGE  : Final[tuple[int, int]]  = (1200, 2100)
-ZERO_ZERO_ONE  : Final[float]            = 0.01
-ZERO_ONE       : Final[float]            = 0.1
-HUNDRED        : Final[int]              = 100
-TEN            : Final[int]              = 10
+
 ##--| Argparse
 import argparse
 parser = argparse.ArgumentParser(
-    prog="biblio restruct",
-    description="Parse bibtex files and retarget their referenced files",
+    prog="polyglot task restructure [lib]",
+    description="Parse bibtex files and retarget their referenced files into new {century}/{decade}/{year} structure.",
 )
 parser.add_argument("--window", default=-1, type=int)
-parser.add_argument("--collect", action="append", default=[])
+parser.add_argument("--collect", default=False, action="store_true")
 parser.add_argument("--new-root", default=NEW_ROOT)
-parser.add_argument("--dry-run", default=True, action="store_false")
-parser.add_argument("--copy", default=False, action="store_true")
+parser.add_argument("--dry-run", default=False, action="store_true")
 parser.add_argument("targets", nargs='*')
 ##--| Body
 
@@ -110,33 +106,11 @@ def build_reader_and_writer() -> tuple[Reader, API.Writer_p]:
     writer = Writer(stack)
     return reader, writer
 
-def generate_year_structures(root:pl.Path) -> None:
-    """ Create the new library structure skeleton """
-    print("Generating Century/Decade Directories")
-    print(f"Root: {root}")
-    if not root.exists():
-        print(f"WARNING: Root does not exist")
-        sys.exit(1)
-    centuries  = list(range(*CENTURY_RANGE, 100))
-    for cent in centuries:
-        century = root / str(cent)
-        for dec in range(cent, cent+100, 10):
-            if 2030 < dec:
-                return
-            decade = century / str(dec)
-            decade.mkdir(parents=True, exist_ok=True)
-
-def year_to_prefix(year:int) -> pl.Path:
-    """ eg: 1999 -> 1900/1990 """
-    century  = int(year * ZERO_ZERO_ONE) * HUNDRED
-    decade   = int(year * ZERO_ONE) * TEN
-    return pl.Path(f"{century}/{decade}")
-
 def retarget_entries(lib, base:pl.Path, decade:pl.Path) -> None:
     """ eg: entry.file=1999/author/name.pdf
     -> entry.file=1900/1990/1999/author/name.pdf
     """
-    print(f"Retargeting Entries for: {base}")
+    print(f"-- Retargeting Entries for: {base}")
     for entry in tqdm.tqdm(lib.entries):
         for key,val in entry.fields_dict.items():
             if "file" not in key:
@@ -148,41 +122,34 @@ def retarget_entries(lib, base:pl.Path, decade:pl.Path) -> None:
             target     = decade / file
             val.value  = target
 
-def retarget_files(i:int, root:pl.Path, *, dry:bool=False, copy:bool=False) -> None:
-    print("Retargeting Actual Files")
-    dirs = list(sorted(LIB_ROOT.glob("*")))
-    for dir in tqdm.tqdm(_util.window_collection(i, dirs), disable=not dry):
-        if dir.is_file():
-            continue
-        rel_path  = dir.relative_to(LIB_ROOT)
-        target    = root / year_to_prefix(int(dir.stem)) / dir.stem
-        assert(not target.exists())
-        if dry:
-            print(f"- {dir} -> {target}")
-        elif copy:
-            dir.copy(target)
-        else:
-            dir.rename(target)
-
 def main():
-    args = parser.parse_args()
-    targets  = [pl.Path(x) for x in args.targets]
-    for x in args.collect:
-        targets += _util.collect(pl.Path(x), glob=GLOB_STR)
+    print("---- [Lib]")
+    args, _ = parser.parse_known_args()
+    targets  = [pl.Path(x) for x in args.targets if bool(x)]
+    if args.collect:
+        collected = []
+        for x in targets:
+            collected += _util.collect(pl.Path(x), glob=GLOB_STR)
+        else:
+            targets = collected
+            print("- Collected: {len(targets)} entries")
 
-    if not bool(targets):
-        targets  = _util.collect(MAIN_DIR, glob=GLOB_STR)
+    if not pl.Path(args.new_root).exists():
+        print("- Error: New Lib Root does not exist yet")
+        sys.exit(1)
 
+    print(f"- Retargeting {len(targets)} bibtex entries")
     reader, writer  = build_reader_and_writer()
-    generate_year_structures(args.new_root)
-    for bib in _util.window_collection(window, targets):
-        new_prefix  = year_to_prefix(int(bib.stem))
+    for bib in _util.window_collection(args.window, targets):
+        new_prefix  = _util.year_to_prefix(int(bib.stem))
         lib         = reader.read(bib)
         retarget_entries(lib, bib, new_prefix)
-        writer.write(lib, file=bib)
+        if args.dry_run:
+            continue
+        else:
+            writer.write(lib, file=bib)
     else:
-        retarget_files(window, args.new_root, dry=args.dry_run, copy=args.copy)
-        print("Finished")
+        pass
 
 ##-- ifmain
 if __name__ == "__main__":

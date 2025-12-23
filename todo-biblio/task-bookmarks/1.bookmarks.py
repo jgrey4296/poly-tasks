@@ -72,8 +72,8 @@ logging = logmod.getLogger(__name__)
 from os import environ
 # Vars:
 ECHO            : Final[bool]     = False
-BOOKMARKS_FILE  : Final[pl.Path]  = pl.Path(envirion['BIBLIO_TOTAL_BOOKMARKS'])
-FIREFOX         : Final[pl.Path]  = pl.Path(environ['BIBLIO_FIREFOX_LOX'])
+BOOKMARKS_FILE  : Final[pl.Path]  = pl.Path(environ['BIBLIO_TOTAL_BOOKMARKS'])
+FIREFOX         : Final[pl.Path]  = pl.Path(environ['BIBLIO_FIREFOX_LOC'])
 DB_FILE         : Final[str]      = "places.sqlite"
 TEMP_DB         : Final[pl.Path]  = pl.Path(environ['POLYGLOT_TEMP']) / "temp.sqlite"
 
