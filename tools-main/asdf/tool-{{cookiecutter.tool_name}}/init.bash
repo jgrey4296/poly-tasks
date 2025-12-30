@@ -21,4 +21,6 @@ if [[ -e "${ASDF_PLUGIN_LIST:-}" ]]; then
         fi
     done < "$ASDF_PLUGIN_LIST"
 fi
+
+tdot "[asdf]" "Installing tools"
 asdf install 2> /dev/null
