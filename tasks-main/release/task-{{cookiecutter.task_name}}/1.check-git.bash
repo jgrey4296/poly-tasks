@@ -8,7 +8,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[release]" "Checking Git status"
+tdot "release" "Checking Git status"
 
 if [[ -n $(git --no-pager diff) ]]; then
     fail "There are unstaged changes."

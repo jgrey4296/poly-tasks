@@ -10,6 +10,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[elixir]" "Validating"
+tdot "elixir" "Validating"
 mix deps.get || fail "Elixir Failed"
 mix compile  || fail "Elixir Failed"

@@ -11,5 +11,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 
-tdot "[python]" "Build"
+tdot "python" "Build"
 uv --out-dir "$POLYGLOT_TEMP/build/python" build

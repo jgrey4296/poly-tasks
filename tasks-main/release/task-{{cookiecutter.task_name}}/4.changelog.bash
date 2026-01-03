@@ -8,5 +8,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[release]" "Generating Towncrier Changelog"
+tdot "release" "Generating Towncrier Changelog"
 towncrier build --yes

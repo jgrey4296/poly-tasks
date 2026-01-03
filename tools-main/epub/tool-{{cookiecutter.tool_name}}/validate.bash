@@ -10,7 +10,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[epub]" "validating"
+tdot "epub" "validating"
 
 zip -v || fail "Couldn't find zip"
 ebook-convert --version || fail "Couldn't find calibre's ebook-convert"

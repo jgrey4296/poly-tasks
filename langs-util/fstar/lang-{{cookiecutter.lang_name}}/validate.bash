@@ -12,5 +12,5 @@ fi
 
 PGLANG="F*"
 
-tdot "[$PGLANG]" "Validating"
+tdot "$PGLANG" "Validating"
 fail "TODO"

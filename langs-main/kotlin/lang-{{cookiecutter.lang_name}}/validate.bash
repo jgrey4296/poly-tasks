@@ -12,11 +12,11 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 
-tdot "[kotlin]" "Validating Basic"
+tdot "kotlin" "Validating Basic"
 gradle --no-daemon :kt_basic:build  || fail "Gradle Failed"
 
-tdot "[kotlin]" "Validating Jacamo"
+tdot "kotlin" "Validating Jacamo"
 gradle --no-daemon :kt_jacamo:build || fail "Jacamo Failed"
 
 
-tdot "[kotlin]" "TODO: validate dokka"
+tdot "kotlin" "TODO: validate dokka"

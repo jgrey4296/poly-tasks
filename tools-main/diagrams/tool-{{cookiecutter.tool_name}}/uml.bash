@@ -37,7 +37,7 @@ options:
 }
 
 
-tdot "[diagrams]" "uml"
+tdot "diagrams" "uml"
 print-help "$@"
 
 shift

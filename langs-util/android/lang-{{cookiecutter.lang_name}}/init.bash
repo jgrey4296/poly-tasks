@@ -11,6 +11,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[android]" "TODO: sdkmanager"
+tdot "android" "TODO: sdkmanager"
 
-tdot "[android]" "TODO: android dev tools"
+tdot "android" "TODO: android dev tools"

@@ -10,5 +10,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[prolog]" "Validating"
+tdot "prolog" "Validating"
 swipl -t halt "$POLYGLOT_SRC/_ai_and_logic/pl/main.pl" london || fail "Prolog Failed"

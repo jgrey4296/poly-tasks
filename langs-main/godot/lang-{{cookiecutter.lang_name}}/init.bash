@@ -12,4 +12,4 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[godot]" "TODO: init git-fs"
+tdot "godot" "TODO: init git-fs"

@@ -14,7 +14,7 @@ fi
 PGLANG="prolog"
 TARGET="$POLYGLOT_SRC/_ai_and_logic/pl"
 
-tdot "[$PGLANG]" "creating a workspace member in $TARGET"
+tdot "$PGLANG" "creating a workspace member in $TARGET"
 
 if [[ -d "$TARGET" ]]; then
     exit 0

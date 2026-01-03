@@ -34,7 +34,7 @@ options:
 }
 
 function check-environment () {
-    tdot "[sync]" "Checking Environment"
+    tdot "sync" "Checking Environment"
     has_failed=0
 
     # if [[ -z "${BIBLIO_LIB:-}" ]]; then

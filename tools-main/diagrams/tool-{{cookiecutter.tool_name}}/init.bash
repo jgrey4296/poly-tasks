@@ -11,8 +11,8 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 
-tdot "[diagrams]" "TODO: init fsms"
+tdot "diagrams" "TODO: init fsms"
 
-tdot "[diagrams]" "TODO: init plantuml"
+tdot "diagrams" "TODO: init plantuml"
 
-tdot "[diagrams]" "TODO: init manim"
+tdot "diagrams" "TODO: init manim"

@@ -11,4 +11,4 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 
-tdot "[dataproc]" "TODO: report on analysed data"
+tdot "dataproc" "TODO: report on analysed data"

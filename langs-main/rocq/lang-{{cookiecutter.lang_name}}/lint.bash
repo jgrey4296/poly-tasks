@@ -10,6 +10,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[rocq]" "lint"
+tdot "rocq" "lint"
 shift
 rocqchk "$1"

@@ -14,7 +14,7 @@ fi
 PGLANG="godot"
 TARGET="$POLYGLOT_SRC/gd"
 
-tdot "[$PGLANG]" "creating a workspace member in $TARGET"
+tdot "$PGLANG" "creating a workspace member in $TARGET"
 
 if [[ -d "$TARGET" ]]; then
     exit 0

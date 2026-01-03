@@ -10,7 +10,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[assets]" "TODO: extracting selection"
+tdot "assets" "TODO: extracting selection"
 
 # get the zip, extract:
 # - the toml metadatga

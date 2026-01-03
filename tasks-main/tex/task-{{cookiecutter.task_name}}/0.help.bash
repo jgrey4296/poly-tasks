@@ -40,7 +40,7 @@ options:
 }
 
 function check-environment () {
-    tdot "[tex]" "Checking Environment"
+    tdot "tex" "Checking Environment"
     has_failed=0
 
     if [[ -z "${POLYGLOT_TEMP:-}" ]]; then

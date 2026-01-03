@@ -10,5 +10,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[rocq]" "Exporting opam switch information to .opam"
+tdot "rocq" "Exporting opam switch information to .opam"
 opam switch export "$POLYGLOT_ROOT/.opam"

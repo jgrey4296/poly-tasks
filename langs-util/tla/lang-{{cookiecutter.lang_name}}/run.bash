@@ -65,13 +65,13 @@ function run-program () {
         )
 
     mkdir -p "$POLYGLOT_TEMP/z3"
-    tdot "[$PGLANG]" "Running: $file"
+    tdot "$PGLANG" "Running: $file"
     fail "TODO"
 }
 
 function main () {
     print-help "$@"
-    tdot "[$PGLANG]" "Parsing Args"
+    tdot "$PGLANG" "Parsing Args"
     shift
     case "$1" in
         --) file="$DEFAULT_FILE" ;;

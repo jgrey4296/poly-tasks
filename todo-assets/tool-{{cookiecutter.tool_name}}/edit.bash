@@ -36,7 +36,7 @@ options:
 }
 
 
-tdot "[assets]" "TODO: edit"
+tdot "assets" "TODO: edit"
 # edit the asset, incrementing version number,
 # udpating date,
 # adding/removing/moving files

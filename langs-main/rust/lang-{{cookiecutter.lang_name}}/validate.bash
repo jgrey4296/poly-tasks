@@ -11,7 +11,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 
-tdot "[rust]" "validating"
+tdot "rust" "validating"
 cargo build || fail "Rust failed"
 
-tdot "[rust]" "TODO: validate rustdoc"
+tdot "rust" "TODO: validate rustdoc"

@@ -35,6 +35,6 @@ options:
 }
 
 
-tdot "[assets]" "TODO: Extracting all"
+tdot "assets" "TODO: Extracting all"
 
 # extract all files from the asset zip

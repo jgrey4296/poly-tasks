@@ -10,5 +10,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[FaCT]" "Validating"
+tdot "FaCT" "Validating"
 fail "TODO"

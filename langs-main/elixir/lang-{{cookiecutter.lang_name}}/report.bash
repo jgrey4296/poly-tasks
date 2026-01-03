@@ -10,5 +10,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[elixir]" "reporting"
+tdot "elixir" "reporting"
 mix deps.tree > "$POLYGLOT_TEMP/report/elixir"

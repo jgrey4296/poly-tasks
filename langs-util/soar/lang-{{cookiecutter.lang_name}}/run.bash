@@ -16,5 +16,5 @@ target="$1"
 file="${2:-$DEFAULT_FILE}"
 shift 2
 
-tdot "[soar]" "Running: $target/$file"
+tdot "soar" "Running: $target/$file"
 soar -s "$POLYGLOT_SRC/$target/$file" "${@:-}"

@@ -51,12 +51,12 @@ function handle-result () {
 }
 
 function run-program () {
-    tdot "[dotnet]" "TODO: add dep"
+    tdot "dotnet" "TODO: add dep"
 }
 
 function main () {
     print-help "$@"
-    tdot "[dotnet] Parsing Args"
+    tdot "dotnet Parsing Args"
     shift
     target="$1"
     case "$2" in

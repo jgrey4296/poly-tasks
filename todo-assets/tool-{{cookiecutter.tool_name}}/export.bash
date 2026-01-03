@@ -36,4 +36,4 @@ options:
 }
 
 
-tdot "[assets]" "TODO: export a group of assets"
+tdot "assets" "TODO: export a group of assets"

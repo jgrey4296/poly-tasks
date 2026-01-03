@@ -32,7 +32,7 @@ options:
 }
 
 function check-environment () {
-    tdot "[release]" "Checking Environment"
+    tdot "release" "Checking Environment"
     has_failed=0
 
     # if [[ -z "${BIBLIO_LIB:-}" ]]; then

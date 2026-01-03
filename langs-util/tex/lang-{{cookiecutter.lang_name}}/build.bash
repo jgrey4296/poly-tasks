@@ -49,7 +49,7 @@ function luatex-pass () {
     shift 3
 
     # Takes 1 arg: The pass number. the rest arg global args
-    tdot "[tex]" "Pass $pass: LuaLaTeX Compiling $file in $localdir"
+    tdot "tex" "Pass $pass: LuaLaTeX Compiling $file in $localdir"
     pushd "$localdir" || fail "lualatex pass failed to pushd"
     _ARGS=(
         "--lua=$LUA_FILE"
@@ -73,7 +73,7 @@ function bibtex-pass () {
     pass="$1"
     localdir="$2"
     file="$3"
-    tdot "[tex]" "Pass $pass: Bibtex $file in $TEX_OUT"
+    tdot "tex" "Pass $pass: Bibtex $file in $TEX_OUT"
     pushd "$TEX_OUT" || fail "bibtex pass failed to pushd"
     case "${VERBOSE:-0}" in
         0)
@@ -93,8 +93,8 @@ function main () {
     file="${1:-$DEFAULT_FILE}"
     check-target
 
-    tdot "[tex]" "build lua-latex"
-    tdot "[tex]" "Target: $TEX_OUT"
+    tdot "tex" "build lua-latex"
+    tdot "tex" "Target: $TEX_OUT"
     for i in $(seq 1 "$TEX_PASSES"); do
         luatex-pass "$i" "$target" "$file"
     done
@@ -109,7 +109,7 @@ function main () {
             ;;
 
     esac
-    tdot "[tex]" "Finished."
+    tdot "tex" "Finished."
     exit 0
 }
 

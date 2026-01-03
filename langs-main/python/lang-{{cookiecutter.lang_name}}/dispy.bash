@@ -18,10 +18,10 @@ DIS_OUT="$1"
 
 [[ -e "$DIS_TARGET" ]] || fail "Python Disassembly Target doesn't exist: $DIS_TARGET"
 
-tdot "[python]" "Disassembing: $DIS_TARGET"
+tdot "python" "Disassembing: $DIS_TARGET"
 if [[ -n "$DIS_OUT" ]]; then
     python -m dis "$DIS_TARGET"
 else
     python -m dis "$DIS_TARGET" > "$DIS_OUT"
-    tdot "[python]" "Disassembled to: $DIS_OUT"
+    tdot "python" "Disassembled to: $DIS_OUT"
 fi

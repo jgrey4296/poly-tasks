@@ -14,13 +14,13 @@ ASDF_PLUGIN_LIST="$POLYGLOT_ROOT/.asdf.plugins"
 
 # asdf plugin add
 if [[ -e "${ASDF_PLUGIN_LIST:-}" ]]; then
-    tdot "[asdf]" "Initialising extra plugins"
+    tdot "plugins" "Initialising plugins..."
     while read -r pname url; do
         if [[ -n "$pname" ]]; then
-            asdf plugin add "${pname}" "${url}" 2> /dev/null
+            asdf plugin add "${pname}" "${url}" 2>/dev/null
         fi
     done < "$ASDF_PLUGIN_LIST"
 fi
 
-tdot "[asdf]" "Installing tools"
-asdf install 2> /dev/null
+tdot "tools" "Installing tools..."
+asdf install 2>/dev/null

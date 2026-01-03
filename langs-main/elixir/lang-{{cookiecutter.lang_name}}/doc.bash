@@ -16,6 +16,6 @@ function check () {
     fi
 }
 
-tdot "[elixir]" "Building ExDoc"
+tdot "elixir" "Building ExDoc"
 check
 mix docs --output "$POLYGLOT_DOCS/elixir"

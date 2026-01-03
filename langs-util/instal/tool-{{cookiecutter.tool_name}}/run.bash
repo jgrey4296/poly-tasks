@@ -11,5 +11,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[instal]" "run"
+tdot "instal" "run"
 fail "TODO"

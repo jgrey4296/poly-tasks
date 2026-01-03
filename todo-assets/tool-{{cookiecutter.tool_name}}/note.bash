@@ -11,5 +11,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[assets]" "TODO: note"
+tdot "assets" "TODO: note"
 # add a note to the record of an asset

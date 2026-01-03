@@ -11,6 +11,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[dataproc]" "TODO: init"
+tdot "dataproc" "TODO: init"
 
 ## add data processing dependencies

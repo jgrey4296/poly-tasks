@@ -11,4 +11,4 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[rust]" "TODO: build"
+tdot "rust" "TODO: build"

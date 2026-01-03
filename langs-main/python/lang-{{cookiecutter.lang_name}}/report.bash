@@ -11,5 +11,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 
-tdot "[python]" "TODO: report"
+tdot "python" "TODO: report"
 touch "$POLYGLOT_TEMP/report/python"

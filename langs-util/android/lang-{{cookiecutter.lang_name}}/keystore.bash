@@ -10,19 +10,21 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[android]" "Generating android keystore"
+tdot "android" "Generating android keystore"
 # up to 2 args. 'new' and the name of the keystore file
 case $1 in
     new)
         KEYSTORE_NAME="${2:-polyglot}"
-        tdot "[android]" "Keystore File: $KEYSTORE_NAME"
-        keytool \
-            -v \
-            -genkey \
-            -keystore "${POLYGLOT_ROOT}/${KEYSTORE_NAME}.keystore" \
-            -alias "${KEYSTORE_NAME}" \
-            -keyalg RSA \
-            -validity 10000
+        tdot "android" "Keystore File: $KEYSTORE_NAME"
+        (
+            keytool \
+                -v \
+                -genkey \
+                -keystore "${POLYGLOT_ROOT}/${KEYSTORE_NAME}.keystore" \
+                -alias "${KEYSTORE_NAME}" \
+                -keyalg RSA \
+                -validity 10000
+        )
     ;;
     *) ;;
 esac

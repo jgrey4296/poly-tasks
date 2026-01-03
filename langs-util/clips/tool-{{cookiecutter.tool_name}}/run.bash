@@ -16,5 +16,5 @@ target="_ai_and_logic/clips"
 file="${1:-$DEFAULT_FILE}"
 shift 1
 
-tdot "[clips]" "Running: $target/$file"
+tdot "clips" "Running: $target/$file"
 clips -f "$POLYGLOT_SRC/$target/$file" "${@:-}"

@@ -10,5 +10,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[imgen]" "TODO: stage 0"
+tdot "imgen" "TODO: stage 0"
 # ie: init the img gen

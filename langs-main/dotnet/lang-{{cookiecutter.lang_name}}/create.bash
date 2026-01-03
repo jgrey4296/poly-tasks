@@ -15,7 +15,7 @@ fi
 PGLANG="dotnet"
 TARGET="$POLYGLOT_SRC/cs_exe"
 
-tdot "[$PGLANG]" "creating a workspace member in $TARGET"
+tdot "$PGLANG" "creating a workspace member in $TARGET"
 
 if [[ -d "$TARGET" ]]; then
     exit 0

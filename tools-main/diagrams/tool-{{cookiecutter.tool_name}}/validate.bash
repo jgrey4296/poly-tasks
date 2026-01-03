@@ -11,8 +11,8 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 
-tdot "[diagrams]" "TODO: Validating FSMs"
+tdot "diagrams" "TODO: Validating FSMs"
 
-tdot "[diagrams]" "TODO: Validating Plantuml"
+tdot "diagrams" "TODO: Validating Plantuml"
 plantuml -version || fail "Plantuml failed"
 plantuml -testdot || fail "Dot failed"

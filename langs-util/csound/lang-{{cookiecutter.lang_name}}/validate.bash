@@ -10,8 +10,8 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[csound]" "Validating"
-csound \
+tdot "csound" "Validating"
+( csound \
     -o .temp/csound/blah.wav \
-    src/_music/csd/main.csd \
-    || fail "Csound Failed"
+    src/_music/csd/main.csd
+) || fail "Csound Failed"

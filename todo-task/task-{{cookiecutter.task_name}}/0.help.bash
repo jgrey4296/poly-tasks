@@ -35,7 +35,7 @@ options:
 }
 
 function check-environment () {
-    tdot "[{{cookiecutter.task_name}}]" "Checking Environment"
+    tdot "{{cookiecutter.task_name}}" "Checking Environment"
     has_failed=0
     # if [[ -z "${BIBLIO_LIB:-}" ]]; then
     #     has_failed=1

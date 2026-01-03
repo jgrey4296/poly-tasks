@@ -10,5 +10,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[csound]" "init"
+tdot "csound" "init"
 mkdir "$POLYGLOT_TEMP/csound"

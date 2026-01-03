@@ -17,7 +17,7 @@ function check () {
     fi
 }
 
-tdot "[kotlin]" "Documenting with Dokka"
+tdot "kotlin" "Documenting with Dokka"
 check
 # https://kotlinlang.org/docs/dokka-cli.html
 # java -jar dokka-cli-2.0.0.jar "$@" "$POLYGLOT_ROOT/dokka.json"

@@ -12,8 +12,8 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 if [[ -e "$PWD/.active" ]]; then
-    tdot "[manage]" "Deactivating $PWD"
+    tdot "manage" "Deactivating $PWD"
     rm "$PWD/.active"
 else
-    tdot "[manage]" "Directory not active anyway"
+    tdot "manage" "Directory not active anyway"
 fi

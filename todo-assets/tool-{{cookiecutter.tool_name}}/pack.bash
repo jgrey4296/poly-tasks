@@ -39,6 +39,6 @@ target="$1"
 shift
 mkdir -p "$POLYGLOT_ROOT/.temp"
 name=$(basename "$target")
-tdot "[pack]" "packing $target into zip file: .temp/$name.zip"
+tdot "pack" "packing $target into zip file: .temp/$name.zip"
 zip -r "$POLYGLOT_ROOT/.temp/$name.zip" "$POLYGLOT_ROOT/$target"
-tdot "[pack]" "Complete."
+tdot "pack" "Complete."

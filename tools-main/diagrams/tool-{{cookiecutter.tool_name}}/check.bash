@@ -12,5 +12,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 shift
-tdot "[diagrams]" "TODO: Check uml"
+tdot "diagrams" "TODO: Check uml"
 plantuml -checkonly "$1"

@@ -59,13 +59,13 @@ function run-program () {
         )
 
     mkdir -p "$POLYGLOT_TEMP/z3"
-    tdot "[z3]" "Running: $file"
+    tdot "z3" "Running: $file"
     z3 "${_ARGS[@]}" "$POLYGLOT_SRC/_ai_and_logic/z3/$file" | tee "$POLYGLOT_TEMP/z3/z3-$file.result"
 }
 
 function main () {
     print-help "$@"
-    tdot "[z3]" "Parsing Args"
+    tdot "z3" "Parsing Args"
     shift
     case "$1" in
         --) file="$DEFAULT_FILE" ;;

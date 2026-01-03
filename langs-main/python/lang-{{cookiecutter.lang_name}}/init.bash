@@ -11,15 +11,14 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[python]" "init"
-if [[ ! -d "$POLYGLOT_TEMP/venv" ]]; then
-    uv venv
-fi
-uv sync --all-groups
+tdot "venv" "init"
+[[ -d "$POLYGLOT_TEMP/venv" ]] || uv venv
+tdot "venv" "sync"
+uv sync --all-groups >/dev/null
 
-tdot "[python]" "TODO: init sphinx"
+tdot "sphinx" "TODO"
 
 if [[ -e "$POLYGLOT_ROOT/.pre-commit-config.yaml" ]]; then
-    tdot "[python]"  "Installing pre-commit hooks"
+    tdot "precommit"  "Installing pre-commit hooks"
     pre-commit install
 fi

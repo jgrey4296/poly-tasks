@@ -11,10 +11,10 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 NEW_VERSION=$(version version)
-tdot "[release]" "Committing as release: $NEW_VERSION"
+tdot "release" "Committing as release: $NEW_VERSION"
 git add --all
 git commit -m "[Release]: ${NEW_VERSION}"
-tdot "[release]" "Tagging release"
+tdot "release" "Tagging release"
 git tag "${NEW_VERSION}"
 
-tdot "[release]" "Finished"
+tdot "release" "Finished"

@@ -16,13 +16,13 @@ PGLANG="diagams"
 TARGET="$POLYGLOT_SRC/_utilities"
 dname=$(dirname "${BASH_SOURCE[0]}")
 
-tdot "[$PGLANG]" "creating fsm workspace member in $TARGET/statemachines"
+tdot "$PGLANG" "creating fsm workspace member in $TARGET/statemachines"
 
 if [[ ! -d "$TARGET/statemachines" ]]; then
     cp -r "$dname/_fsm" "$TARGET/statemachines"
 fi
 
-tdot "[$PGLANG]" "creating uml workspace member in $TARGET/statemachines"
+tdot "$PGLANG" "creating uml workspace member in $TARGET/statemachines"
 if [[ ! -d "$TARGET/uml" ]]; then
     cp -r "$dname/_uml" "$TARGET/uml"
 fi

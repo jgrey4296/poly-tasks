@@ -11,6 +11,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[biblio]" "TODO: init tool"
+tdot "biblio" "TODO: init tool"
 
 # add biblio py dependencies

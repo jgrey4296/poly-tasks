@@ -15,7 +15,7 @@ fi
 PGLANG="rust"
 TARGET="$POLYGLOT_SRC/rs_lib"
 
-tdot "[$PGLANG]" "creating a workspace member in $TARGET"
+tdot "$PGLANG" "creating a workspace member in $TARGET"
 
 if [[ -d "$TARGET" ]]; then
     exit 0

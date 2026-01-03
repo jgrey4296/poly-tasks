@@ -8,7 +8,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[release]" "Checking for queued change fragments"
+tdot "release" "Checking for queued change fragments"
 
 if [[ -n "$TOWNCRIER_CHANGE_DIR" ]]; then
     [[ -n $(fdfind . "$TOWNCRIER_CHANGE_DIR") ]] || fail "There are no fragment changes. Add descriptions of this release."

@@ -71,18 +71,18 @@ function handle-result () {
     # |       128 | Syntax error / command line arguments error                                               |
     # |-----------+-------------------------------------------------------------------------------------------|
     case "$result" in
-        1) tdot "[clingo]" "Interrupted, no solution found yet."
+        1) tdot "clingo" "Interrupted, no solution found yet."
             exit 0
             ;;
         10) # rerun, output as json
             run-program 1 "$@"
             exit 0 ;;
-        11) tdot "[clingo]" "Interrupted but consistent"
+        11) tdot "clingo" "Interrupted but consistent"
             exit 0
             ;;
         20) fail "No solution found" ;;
         30) exit 0 ;;
-        31) tdot "[clingo]" "Interrupted but consistent"
+        31) tdot "clingo" "Interrupted but consistent"
             exit 0
             ;;
         62) exit 0 ;;
@@ -98,12 +98,12 @@ function run-program () {
     shift 3
     result=""
     if [[ "$out_switch" = 0 ]]; then
-        tdot "[clingo]" "Running: ${CLINGO_ARGS[*]} $target/$file\n"
+        tdot "clingo" "Running: ${CLINGO_ARGS[*]} $target/$file\n"
         clingo "$@" "$POLYGLOT_SRC/$target/$file"
         result="$?"
         sep
     else
-        tdot "[clingo]" "Saving results as json: $target-$file.json"
+        tdot "clingo" "Saving results as json: $target-$file.json"
         mkdir -p "$POLYGLOT_TEMP/clingo"
         clingo "$@" "--outf=2" "$POLYGLOT_SRC/$target/$file" > "$POLYGLOT_TEMP/clingo/$target-$file.json"
         result="$?"
@@ -113,7 +113,7 @@ function run-program () {
 
 function main () {
     print-help "$@"
-    tdot "[clingo]" "Parsing Args"
+    tdot "clingo" "Parsing Args"
     shift
     target="$1"
     case "$2" in

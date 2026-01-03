@@ -10,7 +10,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[python]" "TODO: lint"
+tdot "python" "TODO: lint"
 # uv run ruff check --output-format concise
 # uv run mypy
 # uv run mypy --strict

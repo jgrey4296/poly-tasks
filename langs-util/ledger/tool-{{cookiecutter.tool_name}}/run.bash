@@ -14,7 +14,7 @@ fi
 DEFAULT_FILE="record.ledger"
 
 shift
-tdot "[ledger]" "run"
+tdot "ledger" "run"
 pushd "$POLYGLOT_SRC/_data/" || fail "Failed to go to dir"
 ledger "${1:-$DEFAULT_FILE}"
 popd || fail "Failed to return from dir"

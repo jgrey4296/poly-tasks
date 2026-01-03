@@ -14,11 +14,9 @@ fi
 PGLANG="soar"
 TARGET="$POLYGLOT_SRC/_ai_and_logic/soar"
 
-tdot "[$PGLANG]" "creating a workspace member in $TARGET"
+tdot "$PGLANG" "creating a workspace member in $TARGET"
 
-if [[ -d "$TARGET" ]]; then
-    exit 0
-fi
+[[ -d "$TARGET" ]] && exit 0
 
 dname=$(dirname "${BASH_SOURCE[0]}")
 cp -r "$dname/_base" "$TARGET"

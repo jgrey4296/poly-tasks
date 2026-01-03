@@ -40,7 +40,7 @@ options:
 }
 
 function check-environment () {
-    tdot "[imgen]" "Checking Environment"
+    tdot "imgen" "Checking Environment"
     if [[ -z "${POLYGLOT_TEMP:-}" ]]; then
         has_failed=1
         fail "No POLYGLOT_TEMP has been defined"

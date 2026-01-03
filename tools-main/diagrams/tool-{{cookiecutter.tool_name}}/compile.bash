@@ -11,7 +11,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 shift
-tdot "[diagrams]" "Compiling"
+tdot "diagrams" "Compiling"
 case "$1" in
     -a|--all)
         fail "TODO"

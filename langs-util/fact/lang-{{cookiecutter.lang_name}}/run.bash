@@ -59,13 +59,13 @@ function run-program () {
         )
 
     mkdir -p "$POLYGLOT_TEMP/fact"
-    tdot "[FaCT]" "Running: $file"
+    tdot "FaCT" "Running: $file"
     fail "TODO"
 }
 
 function main () {
     print-help "$@"
-    tdot "[FaCT]" "Parsing Args"
+    tdot "FaCT" "Parsing Args"
     shift
     case "$1" in
         --) file="$DEFAULT_FILE" ;;

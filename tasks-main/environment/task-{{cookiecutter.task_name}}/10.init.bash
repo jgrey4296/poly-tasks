@@ -11,7 +11,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[environment]" "Adding default environment vars to .envrc"
+tdot "environment" "Adding default environment vars to .envrc"
 
 echo -e "
 ##-- polyglot defaults

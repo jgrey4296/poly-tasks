@@ -17,7 +17,7 @@ function check () {
     fi
 }
 
-tdot "[rocq]" "TODO: Doc"
+tdot "rocq" "TODO: Doc"
 check
 
 mkdir "$POLYGLOT_DOCS/rocq"

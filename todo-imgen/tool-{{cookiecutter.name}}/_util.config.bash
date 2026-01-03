@@ -11,4 +11,4 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 
-tdot "[imgen]" "TODO: config load"
+tdot "imgen" "TODO: config load"

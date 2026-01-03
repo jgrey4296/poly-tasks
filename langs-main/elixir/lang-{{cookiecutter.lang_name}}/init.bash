@@ -11,5 +11,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[elixir]" "init"
+tdot "elixir" "init"
 mix deps.get

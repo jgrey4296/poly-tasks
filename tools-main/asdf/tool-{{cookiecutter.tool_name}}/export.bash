@@ -11,5 +11,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 
-tdot "[asdf]" "Exporting"
+tdot "asdf" "Exporting"
 asdf plugin list --urls > "$POLYGLOT_ROOT/.asdf.plugins"

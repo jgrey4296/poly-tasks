@@ -20,7 +20,7 @@ function check () {
     fi
 }
 
-tdot "[rust]" "doc"
+tdot "rust" "doc"
 check
 cargo doc \
     --workspace \

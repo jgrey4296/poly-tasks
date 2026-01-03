@@ -17,6 +17,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 fname=$(basename "${BASH_SOURCE[0]}")
-tdot "[docs]" "($HOOK_NUM): $fname.\n* Args: " "$@"
+tdot "docs" "($HOOK_NUM): $fname.\n* Args: " "$@"
 
-tdot "[docs]" "TODO: combination"
+tdot "docs" "TODO: combination"

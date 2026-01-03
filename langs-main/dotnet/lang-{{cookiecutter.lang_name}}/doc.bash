@@ -17,6 +17,6 @@ function check () {
     fi
 }
 
-tdot "[dotnet]" "Running docfx"
+tdot "dotnet" "Running docfx"
 check
 docfx "$POLYGLOT_ROOT/docfx.json"

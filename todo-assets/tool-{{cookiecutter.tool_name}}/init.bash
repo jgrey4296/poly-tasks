@@ -37,7 +37,7 @@ options:
 
 function make_assets_file () {
     local exts
-    tdot "[init]" "Creating ${1}.toml"
+    tdot "init" "Creating ${1}.toml"
     if [[ -e "${ASSETDIR}/${1}.toml" ]]; then
         fail "Assets data already exists."
     fi
@@ -45,7 +45,7 @@ function make_assets_file () {
     touch    "${ASSETDIR}/${1}.toml"
     exts=$(fdfind -E .assets -H -t f | sed -rn 's|.*[^/]+\.([^/.]+)$|.\1|p' | sort -u | sed -r '{:q;N;s/\n/, /g;t q}')
     # TODO get size of directory
-    tdot "[init]" "Extensions: $exts"
+    tdot "init" "Extensions: $exts"
 
     echo -e "# ${1}.toml -*- mode: Toml -*-
 format_version = '0.1'
@@ -63,32 +63,34 @@ date        = \"\"
 }
 
 function make_integrity_file () {
-    tdot "[init]" "Creating ${1}.integrity"
+    tdot "init" "Creating ${1}.integrity"
     touch    "${ASSETDIR}/${1}.integrity"
 
-    fdfind \
+    ( fdfind \
         --hidden \
         --type f \
         --exclude ".assets" \
         --exec sha256sum > "${ASSETDIR}/${1}.integrity"
+    )
 
     count=$(cat < "${ASSETDIR}/${1}.integrity" | wc -l)
-    tdot "[init]" "Saved ${count} files' sha256sum's."
+    tdot "init" "Saved ${count} files' sha256sum's."
 }
 
 function make_tree_file () {
-    tdot "[init]" "Creating ${1}.tree"
+    tdot "init" "Creating ${1}.tree"
     touch "${ASSETDIR}/${1}.tree"
 
-    fdfind \
+    ( fdfind \
         --hidden \
         --type f \
         --exclude ".assets" \
         | tree --fromfile > "$ASSETDIR/${1}.tree"
+    )
 }
 
 function make_notes_file () {
-    tdot "[init]" "Making Notes file."
+    tdot "init" "Making Notes file."
     touch "${ASSETDIR}/${1}.notes"
 
 }

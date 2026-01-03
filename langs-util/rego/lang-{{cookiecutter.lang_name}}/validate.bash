@@ -10,11 +10,13 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[rego]" "Validating"
+tdot "rego" "Validating"
 pushd "$POLYGLOT_SRC/_ai_and_logic/rego" || fail "Failed to go to rego dir"
-opa eval \
-    -d "main.rego" \
-    "data.example.pi" \
-    | jq .result[0].expression[0].value \
-    || fail "OPA failed"
+(
+    opa eval \
+        -d "main.rego" \
+        "data.example.pi" \
+        | jq .result[0].expression[0].value
+) || fail "OPA failed"
+
 popd || fail "Failed to return from rego dir"

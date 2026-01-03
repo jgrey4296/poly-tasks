@@ -60,7 +60,7 @@ function run-program () {
     shift 3
     _args="$@"
 
-    tdot "[rego]" "Running: $target/$file"
+    tdot "rego" "Running: $target/$file"
     # tee redirects to a file and stdout
     pushd "$POLYGLOT_SRC/_ai_and_logic/rego" || fail "Failed to go to rego dir"
     opa eval -d "$file" -i "$data" "${_args}" | tee "$POLYGLOT_TEMP/rego/$target-$file.json"
@@ -70,7 +70,7 @@ function run-program () {
 
 function main () {
     print-help "$@"
-    tdot "[rego]" "Parsing Args"
+    tdot "rego" "Parsing Args"
     case "$1" in
         --) file="$DEFAULT_FILE" ;;
         *)  file="$2" ;;

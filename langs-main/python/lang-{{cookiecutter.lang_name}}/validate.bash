@@ -10,7 +10,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[python]" "validating"
+tdot "python" "validating"
 uv sync || fail "Python failed"
 
-tdot "[python]" "TODO: validate sphinx"
+tdot "python" "TODO: validate sphinx"

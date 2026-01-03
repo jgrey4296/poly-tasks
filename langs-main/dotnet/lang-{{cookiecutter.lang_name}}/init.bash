@@ -17,12 +17,12 @@ function check () {
     fi
 }
 
-tdot "[dotnet]" "initialising"
+tdot "dotnet" "initialising"
 check
-tdot "[dotnet]" "TODO: dotnet sdks/runtimes"
+tdot "dotnet" "TODO: dotnet sdks/runtimes"
 
 dotnet new sln --force
 fdfind ".(cs|fs)proj" "$POLYGLOT_ROOT" --threads=1 --exec dotnet sln add
 
-tdot "[dotnet]" "installing docfx"
+tdot "dotnet" "installing docfx"
 dotnet tool update -g docfx

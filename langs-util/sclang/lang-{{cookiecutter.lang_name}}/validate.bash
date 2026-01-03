@@ -13,7 +13,12 @@ fi
 DEFAULT_FILE="main.scd"
 DEFAULT_CONFIG="lib.yaml"
 
-tdot "[sclang]" "Validating"
+tdot "sclang" "Validating"
 pushd "$POLYGLOT_SRC/_music/sc" || fail "Failed to go to sclang dir"
-sclang -l "$DEFAULT_CONFIG" -r -s "$DEFAULT_FILE" || fail "SCLang failed"
+(
+    sclang \
+        -l "$DEFAULT_CONFIG" \
+        -r \
+        -s "$DEFAULT_FILE"
+) || fail "SCLang failed"
 popd || fail "Failed to return from sclang dir"

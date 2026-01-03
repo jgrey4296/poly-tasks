@@ -48,25 +48,27 @@ if [[ ! -e "$integrity" ]]; then
 fi
 
 temp=$( mktemp )
-tdot "[check]" "Getting current files."
-fdfind \
+tdot "check" "Getting current files."
+( fdfind \
     --hidden \
     --type f \
     --exclude ".assets" \
     --exec sha256sum > "${temp}"
+)
 
 count=$(cat < ${temp} | wc -l)
-tdot "[check]" "Found $count current files."
+tdot "check" "Found $count current files."
 
-tdot "[check]" "Checking current against integrity list."
-shasum \
+tdot "check" "Checking current against integrity list."
+( shasum \
     --algorithm 256 \
     --warn \
     --quiet \
     --check "${integrity}" "${temp}"
+ )
 
 if [[ "$?" = 0 ]]; then
-    tdot "[check]" "Success"
+    tdot "check" "Success"
 else
     fail "Integrity check failed."
 fi

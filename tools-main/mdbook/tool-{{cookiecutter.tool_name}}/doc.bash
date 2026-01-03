@@ -16,6 +16,6 @@ function check () {
     fi
 }
 
-tdot "[mdbook]" "Building"
+tdot "mdbook" "Building"
 check
 mdbook build

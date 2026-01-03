@@ -11,5 +11,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 shift
-tdot "[rocq]" "TODO report"
+tdot "rocq" "TODO report"
 rocq wc "$1"

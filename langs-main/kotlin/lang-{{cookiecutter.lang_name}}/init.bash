@@ -13,11 +13,11 @@ fi
 
 # https://sdkman.io/install/
 if [[ -n "$SDKMAN_DIR" ]] && [[ -d  "$SDKMAN_DIR" ]]; then
-    tdot "[kotlin]" "sdkman installed, activating"
+    tdot "kotlin" "sdkman installed, activating"
     # shellcheck disable=SC1091
     source "$SDKMAN_DIR/bin/sdkman-init.sh"
 else
-    tdot "[kotlin]" "Installing SDKMAN"
+    tdot "kotlin" "Installing SDKMAN"
     curl -s "https://get.sdkman.io" | bash
     # shellcheck disable=SC1091
     source "$SDKMAN_DIR/bin/sdkman-init.sh"

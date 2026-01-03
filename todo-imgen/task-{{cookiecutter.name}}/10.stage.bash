@@ -10,6 +10,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[imgen]" "TODO: stage N"
+tdot "imgen" "TODO: stage N"
 
 # polyglot tool imgen stage-N "$@"

@@ -38,7 +38,7 @@ options:
 }
 
 function check-environment () {
-    tdot "[report]" "Checking Environment"
+    tdot "report" "Checking Environment"
     has_failed=0
 
     # if [[ -z "${BIBLIO_LIB:-}" ]]; then

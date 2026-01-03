@@ -12,7 +12,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
 fi
 
 if [[ -f "$POLYGLOT_ROOT/tex.reqs" ]]; then
-    tdot "[tex]" "Initialising"
+    tdot "tex" "Initialising"
     mkdir -p "$POLYGLOT_TEMP/tex"
     asdf cmd texlive deps "$POLYGLOT_ROOT/tex.reqs" > /dev/null || fail "tlmgr update failed"
 fi

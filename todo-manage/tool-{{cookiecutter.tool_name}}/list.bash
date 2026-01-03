@@ -11,7 +11,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[manage]" "Active Workspace Components:"
+tdot "manage" "Active Workspace Components:"
 for sub in $(get_activated)
 do
     echo "- ${sub}"

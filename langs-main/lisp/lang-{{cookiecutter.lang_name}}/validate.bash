@@ -11,7 +11,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[lisp]" "TODO: Validate"
+tdot "lisp" "TODO: Validate"
 ## pushd "$POLYGLOT_SRC/el" || fail "Failed to go to lisp dir"
 ## eask files
 ## popd || fail "Failed to return from lisp dir"

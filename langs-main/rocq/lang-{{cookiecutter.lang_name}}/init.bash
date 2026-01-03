@@ -12,15 +12,15 @@ fi
 
 switchname=$(basename "$POLYGLOT_ROOT")
 ocaml_version="${OCAML_VERSION:-5.4.0}"
-tdot "[rocq]" "Initialising Opam Switch: $switchname with ocaml ${ocaml_version}"
+tdot "rocq" "Initialising Opam Switch: $switchname with ocaml ${ocaml_version}"
 opam switch create "$switchname" "$ocaml_version"
 eval $(opam env)
 
 if [[ -e "$POLYGLOT_ROOT/.opam" ]]; then
-    tdot "[rocq]" "Installing dependencies from .opam"
+    tdot "rocq" "Installing dependencies from .opam"
     opam switch import "$POLYGLOT_ROOT/.opam"
 else
-    tdot "[rocq]" "No dependency .opam file found"
+    tdot "rocq" "No dependency .opam file found"
     opam install ocaml-lsp-server odoc ocamlformat utop dune
     opam pin rocq-prover 9.0.0
     # https://rocq-prover.org/docs/using-opam#platform

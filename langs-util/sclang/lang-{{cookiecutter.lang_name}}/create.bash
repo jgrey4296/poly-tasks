@@ -14,7 +14,7 @@ fi
 PGLANG="sclang"
 TARGET="$POLYGLOT_SRC/_music/sc"
 
-tdot "[$PGLANG]" "creating a workspace member in $TARGET"
+tdot "$PGLANG" "creating a workspace member in $TARGET"
 
 if [[ -d "$TARGET" ]]; then
     exit 0

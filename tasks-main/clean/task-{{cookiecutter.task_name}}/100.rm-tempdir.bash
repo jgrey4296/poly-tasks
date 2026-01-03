@@ -46,7 +46,7 @@ function main () {
     done
 
     fname=$(basename "${BASH_SOURCE[0]}")
-    tdot "[clean]" "($HOOK_NUM): $fname.\n* Args: " "$@"
+    tdot "clean" "($HOOK_NUM): $fname.\n* Args: " "$@"
     check
     rm -rf "$POLYGLOT_TEMP"
 }

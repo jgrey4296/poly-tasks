@@ -55,13 +55,13 @@ function run-program () {
     target="$1"
     file="$2"
     shift 2
-    tdot "[prolog]" "Running: $target/$file"
+    tdot "prolog" "Running: $target/$file"
     swipl "$POLYGLOT_SRC/$target/$file" | tee "$POLYGLOT_TEMP/$target-$file.result" "$@"
 }
 
 function main () {
     print-help "$@"
-    tdot "[prolog]" "Parsing Args"
+    tdot "prolog" "Parsing Args"
     shift
     target="$1"
     case "$2" in

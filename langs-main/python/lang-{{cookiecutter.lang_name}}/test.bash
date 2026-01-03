@@ -10,7 +10,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[python]" "TODO: test"
+tdot "python" "TODO: test"
 # uv run pytest
 
 # uv run pytest \

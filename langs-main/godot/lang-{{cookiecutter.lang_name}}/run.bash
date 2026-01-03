@@ -52,7 +52,7 @@ function run-program () {
     target="$1"
     file="$2"
     shift 2
-    tdot "[godot]" "TODO: run"
+    tdot "godot" "TODO: run"
     # _ARGS=(
     #     "--headless"
     #     "--script" "$POLYGLOT_SRC/$target/$file"

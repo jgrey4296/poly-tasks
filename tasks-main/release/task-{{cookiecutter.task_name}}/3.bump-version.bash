@@ -8,10 +8,10 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[release]" "Calculating Version Number"
+tdot "release" "Calculating Version Number"
 CURR_VERSION=$(version version)
-tdot "[release]" "Bumping Version Number"
+tdot "release" "Bumping Version Number"
 version "$LEVEL" "set" "+"
 version file update-all
 NEW_VERSION=$(version version)
-tdot "[release]" "Project Version $CURR_VERSION -> $NEW_VERSION"
+tdot "release" "Project Version $CURR_VERSION -> $NEW_VERSION"

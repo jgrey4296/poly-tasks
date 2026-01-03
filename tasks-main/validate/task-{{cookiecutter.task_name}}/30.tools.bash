@@ -10,8 +10,10 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-subhead "TODO Validating Tools"
+subhead "Validating Tools"
 
-if ( polyglot check tool-diagrams ); then
-    polyglot tool diagrams validate
-fi
+for key in "$POLYGLOT_ROOT/.tasks/tool-"*
+do
+    polyglot check tool "${key/tool-//}" validate || continue
+    polyglot tool "${key/tool-//}" validate "$@"
+done

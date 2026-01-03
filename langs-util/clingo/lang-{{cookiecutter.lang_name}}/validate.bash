@@ -10,6 +10,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[clingo]" "Validating"
+tdot "clingo" "Validating"
 clingo src/_ai_and_logic/asp/main.lp
 # TODO handle the return code

@@ -16,6 +16,6 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[debug]" "($HOOK_NUM): $fname.\n* Args: " "$@"
+tdot "debug" "($HOOK_NUM): $fname.\n* Args: " "$@"
 
-tdot "[debug]" "TODO: init"
+tdot "debug" "TODO: init"

@@ -50,11 +50,11 @@ function handle-result () {
 
 function run-tool () {
     if [[ ! -d "$POLYGLOT_SRC/_epub" ]]; then
-        tdot "[epub]" "Skipping Epub build, no src/_epub dir."
+        tdot "epub" "Skipping Epub build, no src/_epub dir."
         exit 0
     fi
 
-    tdot "[epub]" "Building"
+    tdot "epub" "Building"
     mkdir -p "$TEMPDIR"
     zip -r "$TEMPDIR/test.zip" "$POLYGLOT_ROOT/src/_epub"/*
     ebook-convert "$TEMPDIR/test.zip" "$TEMPDIR/test.epub"
@@ -63,7 +63,7 @@ function run-tool () {
 
 function main () {
     print-help "$@"
-    tdot "[epub]" "Parsing Args"
+    tdot "epub" "Parsing Args"
     shift
     _ARGS=("$@")
     run-tool "$target" "$file" "${_ARGS[@]}"

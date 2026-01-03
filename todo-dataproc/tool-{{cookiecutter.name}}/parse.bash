@@ -10,4 +10,4 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[dataproc]" "TODO: parse unpacked data"
+tdot "dataproc" "TODO: parse unpacked data"

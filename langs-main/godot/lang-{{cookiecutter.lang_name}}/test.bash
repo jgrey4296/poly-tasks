@@ -57,7 +57,7 @@ function run-program () {
            "addons/gut/gut_cmdln.gd"
            "-gexit"
     )
-    tdot "[godot]" "test"
+    tdot "godot" "test"
     godot "${_ARGS[@]}"
 }
 

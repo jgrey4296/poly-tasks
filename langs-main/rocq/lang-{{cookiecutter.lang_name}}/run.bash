@@ -10,7 +10,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[rocq]" "TODO: run"
+tdot "rocq" "TODO: run"
 # https://rocq-prover.org/doc/V9.0.0/refman/practical-tools/utilities.html
 
 # rocq makefile -f _CoqProject -o CoqMakefile

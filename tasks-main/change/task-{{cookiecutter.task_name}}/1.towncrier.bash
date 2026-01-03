@@ -9,5 +9,5 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[change]" "Creating Towncrier change"
+tdot "change" "Creating Towncrier change"
 towncrier create --no-edit "+.${1:-feature}"

@@ -39,14 +39,14 @@ function run-csound () {
     target="$1"
     file="$2"
     shift 2
-    tdot "[csound]" "Running: $target/$file ${*}"
+    tdot "csound" "Running: $target/$file ${*}"
     csound "$@" "$POLYGLOT_SRC/$target/$file"
     return "$?"
 }
 
 function main () {
     print-help "$@"
-    tdot "[csound]" "Parsing Args"
+    tdot "csound" "Parsing Args"
     shift
     target="$1"
     case "$2" in

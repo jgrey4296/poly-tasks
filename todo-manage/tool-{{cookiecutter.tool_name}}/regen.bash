@@ -10,4 +10,4 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[manage]" "TODO: regenerate"
+tdot "manage" "TODO: regenerate"

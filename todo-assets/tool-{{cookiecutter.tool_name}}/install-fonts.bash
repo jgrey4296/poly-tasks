@@ -36,7 +36,7 @@ options:
     exit "${PRINTED_HELP:-2}"
 }
 
-tdot "[fonts]" "TODO: install fonts"
+tdot "fonts" "TODO: install fonts"
 
 # cp *.ttf "$HOME/.local/share/fonts"
 # fc-cache -f -v

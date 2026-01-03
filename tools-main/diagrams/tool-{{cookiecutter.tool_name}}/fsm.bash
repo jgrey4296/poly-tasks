@@ -10,7 +10,7 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "[diagrams]" "FSMs"
+tdot "diagrams" "FSMs"
 shift
 uv run \
     --script "$POLYGLOT_SRC/_utilities/statemachines/writer.py" "$@"
