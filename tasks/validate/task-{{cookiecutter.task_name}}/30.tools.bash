@@ -14,6 +14,6 @@ subhead "Validating Tools"
 
 for key in "$POLYGLOT_ROOT/.tasks/tool-"*
 do
-    polyglot check tool "${key/tool-//}" validate || continue
-    polyglot tool "${key/tool-//}" validate "$@"
+    polyglot check tool "${key/*tool-/}" validate || continue
+    polyglot tool "${key/*tool-/}" validate "$@"
 done

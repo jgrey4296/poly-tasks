@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
-# build.bash -*- mode: sh -*-
+# add_env.bash -*- mode: sh -*-
 #set -o errexit
 set -o nounset
 set -o pipefail
 
-
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
 if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
+   # shellcheck disable=SC1091
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "cargo" "TODO: build"
+POLY_CTX=$(pushctx "env")
+tdot "TODO" "set any dotnet env vars"
+
+
+echo -e "
+# polyglot dotnet env vars
+
+" > "$POLYGLOT_ROOT/.envrc"

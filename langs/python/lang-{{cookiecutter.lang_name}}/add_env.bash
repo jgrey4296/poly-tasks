@@ -12,4 +12,12 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-tdot "python" "TODO: set any polyglot python env vars"
+POLY_CTX=$(pushctx "env")
+tdot "TODO" "set any python env vars"
+
+tdot "sphinx" "Adding sphinx env vars"
+echo -e "
+# polyglot python env vars
+export POLYGLOT_SPHINX_BUILDER=\"bibhtml\"
+export POLYGLOT_SPHINX_CONF_DIR=\"\$PWD/src/_sphinx\"
+" > "$POLYGLOT_ROOT/.envrc"

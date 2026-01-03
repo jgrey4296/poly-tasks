@@ -11,10 +11,10 @@ if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
     source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 fi
 
-subhead "Validating Main Languages"
+subhead "Validating Languages"
 
 for key in "$POLYGLOT_ROOT/.tasks/lang-"*
 do
-    polyglot check lang "${key/lang-//}" validate || continue
-    polyglot lang "${key/lang-//}" validate "$@"
+    polyglot check lang "${key/*lang-/}" validate || continue
+    polyglot lang "${key/*lang-/}" validate "$@"
 done
