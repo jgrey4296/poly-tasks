@@ -1,0 +1,6 @@
+
+[polyglot.z3]
+suffixes  = [".z3"]
+config    = []
+prefix    = "z3_"
+active    = []

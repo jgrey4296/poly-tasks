@@ -1,0 +1,6 @@
+
+[polyglot.octave]
+suffixes  = [".m"]
+config    = []
+prefix    = "oct_"
+active    = []

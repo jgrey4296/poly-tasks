@@ -1,0 +1,6 @@
+
+[polyglot.docgen.epub]
+suffixes = []
+config = []
+prefix = "_epub"
+active = []

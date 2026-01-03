@@ -1,0 +1,6 @@
+
+[polyglot.sclang]
+suffixes  = [".scd"]
+config    = []
+prefix    = "sc_"
+active    = []

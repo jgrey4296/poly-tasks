@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#set -o errexit
+set -o nounset
+set -o pipefail
+
+# shellcheck disable=SC1091
+source "$POLY_SRC/lib/lib-util.bash"
+if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
+    # shellcheck disable=SC1091
+    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
+fi
+
+NEW_VERSION=$(version version)
+tdot "release" "Committing as release: $NEW_VERSION"
+git add --all
+git commit -m "[Release]: ${NEW_VERSION}"
+tdot "release" "Tagging release"
+git tag "${NEW_VERSION}"
+
+tdot "release" "Finished"

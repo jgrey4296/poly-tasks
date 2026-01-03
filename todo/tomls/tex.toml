@@ -1,0 +1,6 @@
+
+[polyglot.docgen.tex]
+suffixes  = [".tex", ".bib", ".lua"]
+config    = ["init.tex.lua", "tex.reqs"]
+dirs      = ["_tex"]
+active    = []

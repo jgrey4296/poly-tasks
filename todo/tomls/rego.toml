@@ -1,0 +1,6 @@
+
+[polyglot.rego]
+suffixes  = [".rego"]
+config    = []
+prefix    = "opa_"
+active    = []
