@@ -6,13 +6,10 @@ set -o pipefail
 
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
-    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
-fi
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
 tdot "dotnet" "Serving"
-if [[ -e "$POLYGLOT_ROOT/blah.sln" ]]; then
-    rm "$POLYGLOT_ROOT/blah.sln"
-fi
+[[ -e "$POLYGLOT_ROOT/blah.sln" ]] && rm "$POLYGLOT_ROOT/blah.sln"
 
 dotnet build-server || fail "Dotnet Failed"

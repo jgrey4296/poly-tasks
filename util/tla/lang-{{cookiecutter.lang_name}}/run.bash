@@ -10,25 +10,15 @@
 set -o nounset
 set -o pipefail
 
-DEFAULT_FILE="main.tla"
-PGLANG="tla+"
 
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
-    # shellcheck disable=SC1091
-    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
-fi
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
-function print-help () {
-    case "${@: -1}" in
-        -h|--help) ;;
-        *) if [[ "$#" -gt 0 ]]; then
-               return
-           fi
-           ;;
-    esac
-    echo -e "
+DEFAULT_FILE="main.tla"
+PGLANG="tla+"
+HELP_TEXT="
 usage: polyglot lang tla run [-h] [package] [filename|--] [args...]
 
 run a $PGLANG file
@@ -42,8 +32,6 @@ options:
 -h, --help    : show this help message and exit
 
 "
-    exit "${PRINTED_HELP:-2}"
-}
 
 function handle-result () {
     result="$1"
@@ -70,7 +58,7 @@ function run-program () {
 }
 
 function main () {
-    print-help "$@"
+    print-help "$HELP_TEXT" 0 "$@"
     tdot "$PGLANG" "Parsing Args"
     shift
     case "$1" in

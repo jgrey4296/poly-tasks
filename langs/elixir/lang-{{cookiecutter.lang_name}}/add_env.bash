@@ -6,16 +6,16 @@ set -o pipefail
 
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
-   # shellcheck disable=SC1091
-    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
-fi
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
 POLY_CTX=$(pushctx "env")
 tdot "TODO" "set any elixir env vars"
 
+ENV_TEXT="
+# -- polyglot elixir env vars
 
-echo -e "
-# polyglot elixir env vars
+# --
+"
 
-" > "$POLYGLOT_ROOT/.envrc"
+echo -e "$ENV_TEXT" > "$POLYGLOT_ROOT/.envrc"

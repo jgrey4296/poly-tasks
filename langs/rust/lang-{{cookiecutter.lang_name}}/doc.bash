@@ -4,24 +4,19 @@
 set -o nounset
 set -o pipefail
 
-
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
-    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
-fi
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
 function check () {
-    if [[ ! -e "$POLYGLOT_ROOT/Cargo.toml" ]]; then
-        fail "NOT FOUND: $POLYGLOT_ROOT/Cargo.toml"
-    fi
-    if [[ ! -d "$POLYGLOT_DOCS" ]]; then
-        fail "NOT FOUND: $POLYGLOT_DOCS"
-    fi
+    [[  -e "$POLYGLOT_ROOT/Cargo.toml" ]] || fail "NOT FOUND: $POLYGLOT_ROOT/Cargo.toml"
+    [[  -d "$POLYGLOT_DOCS" ]] || fail "NOT FOUND: $POLYGLOT_DOCS"
 }
 
 tdot "rust" "doc"
 check
-cargo doc \
+( cargo doc \
     --workspace \
     --target-dir "$POLYGLOT_DOCS/rustdoc"
+  ) || fail "cargo doc failed"

@@ -7,19 +7,12 @@ set -o pipefail
 
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-source "$POLYGLOT_ROOT/.tasks/task-utils.bash"
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
 DEFAULT_FILE="main.csd"
 
-function print-help () {
-    case "${@: -1}" in
-        -h|--help) ;;
-        *) if [[ "$#" -gt 0 ]]; then
-               return
-           fi
-           ;;
-    esac
-    echo -e "
+HELP_TEXT="
 usage: polyglot lang csound run [-h] [packageName] [file|--]? [args...]
 
 positional arguments:
@@ -32,8 +25,6 @@ options:
 -h, --help    : show this help message and exit
 
 "
-    exit "${PRINTED_HELP:-2}"
-}
 
 function run-csound () {
     target="$1"
@@ -45,7 +36,7 @@ function run-csound () {
 }
 
 function main () {
-    print-help "$@"
+    print-help "$HELP_TEXT" 0 "$@"
     tdot "csound" "Parsing Args"
     shift
     target="$1"

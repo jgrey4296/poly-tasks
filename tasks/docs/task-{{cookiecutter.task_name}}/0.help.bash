@@ -6,18 +6,10 @@ set -o pipefail
 
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
-    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
-fi
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
-function print-help () {
-    # test args, if the last one is -h or --help
-    # print help and exit
-    case "${@: -1}" in
-        -h|--help) ;;
-        *) return ;;
-    esac
-    echo -e "
+HELP_TEXT="
 usage: polyglot task docs [args ...] [-h]
 
 positional arguments:
@@ -26,10 +18,7 @@ args          :
 options:
 -h, --help    : show this help message and exit
 
-
 "
-    exit "${PRINTED_HELP:-2}"
-}
 
 function check-environment () {
     tdot "docs" "Checking Environment"
@@ -40,10 +29,8 @@ function check-environment () {
     #     echo -e "!-- No BIBLIO_LIB has been defined"
     # fi
 
-    if [[ "$has_failed" -gt 0 ]]; then
-        fail "Missing EnvVars"
-    fi
+    [[ "$has_failed" -eq 0 ]] || fail "Missing EnvVars"
 }
 
-print-help "$@"
+print-help "$HELP_TEXT" 0 "$@"
 check-environment

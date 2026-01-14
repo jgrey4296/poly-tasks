@@ -6,21 +6,10 @@ set -o pipefail
 
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
-    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
-fi
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
-function print-help () {
-    # test args, if the last one is -h or --help
-    # print help and exit
-    case "${@: -1}" in
-        -h|--help) ;;
-        *) if [[ "$#" -gt 0 ]]; then
-               return
-           fi
-           ;;
-    esac
-    echo -e "
+HELP_TEXT="
 usage: polyglot tool assets check [-h] [args ...]
 
 positional arguments:
@@ -29,23 +18,16 @@ args          :
 options:
 -h, --help    : show this help message and exit
 
-
 "
-    exit "${PRINTED_HELP:-2}"
-}
 
-print-help "$@"
+print-help "$HELP_TEXT" 0 "$@"
 
 # Check the asset metadata matches actual
-if [[ ! -d "$PWD/.assets" ]]; then
-    fail ".assets directory not found."
-fi
+[[ -d "$PWD/.assets" ]] || fail ".assets directory not found."
 
 name=$(basename "$PWD")
 integrity="$PWD/.assets/${name}.integrity"
-if [[ ! -e "$integrity" ]]; then
-    fail "Integrity list not found: ${integrity}"
-fi
+[[ -e "$integrity" ]] || fail "Integrity list not found: ${integrity}"
 
 temp=$( mktemp )
 tdot "check" "Getting current files."

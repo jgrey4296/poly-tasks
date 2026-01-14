@@ -4,17 +4,14 @@
 set -o nounset
 set -o pipefail
 
-
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
-    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
-fi
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
 function check () {
-    if [[ -z "$DOTNET_ROOT" ]]; then
-        fail "No DOTNET_ROOT defined"
-    fi
+    [[ -n "${DOTNET_ROOT:-}" ]] || fail "No DOTNET_ROOT defined"
+    [[ -x dotnet  ]]            || fail "dotnet is not executable"
 }
 
 tdot "dotnet" "initialising"

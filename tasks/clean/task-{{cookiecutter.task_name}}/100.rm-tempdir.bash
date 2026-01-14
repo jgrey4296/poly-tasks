@@ -11,18 +11,12 @@ set -o pipefail
 
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
-    # shellcheck disable=SC1091
-    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
-fi
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
 function check () {
-    if [[ -z "$POLYGLOT_TEMP" ]]; then
-        fail "polyglot temp is not set"
-    fi
-    if [[ ! -d "$POLYGLOT_TEMP" ]]; then
-        fail "polyglot temp does not exist"
-    fi
+    [[ -n "$POLYGLOT_TEMP" ]] || fail "polyglot temp is not set"
+    [[ -d "$POLYGLOT_TEMP" ]] || fail "polyglot temp does not exist"
 }
 
 function main () {

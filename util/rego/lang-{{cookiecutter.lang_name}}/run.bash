@@ -9,20 +9,10 @@ DEFAULT_FILE="main.rego"
 
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
-    # shellcheck disable=SC1091
-    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
-fi
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
-function print-help () {
-    case "${@: -1}" in
-        -h|--help) ;;
-        *) if [[ "$#" -gt 0 ]]; then
-               return
-           fi
-           ;;
-    esac
-    echo -e "
+HELP_TEXT="
 usage: polyglot lang rego run [-h] [package] [filename|--] [data] [query] [args...]
 
 run a rego file
@@ -38,8 +28,6 @@ options:
 -h, --help    : show this help message and exit
 
 "
-    exit "${PRINTED_HELP:-2}"
-}
 
 function handle-result () {
     result="$1"
@@ -51,6 +39,7 @@ function handle-result () {
         *) fail "Unknown result code: $result"
     esac
 }
+
 
 function run-program () {
     shift
@@ -69,7 +58,7 @@ function run-program () {
 }
 
 function main () {
-    print-help "$@"
+    print-help "$HELP_TEXT" 0 "$@"
     tdot "rego" "Parsing Args"
     case "$1" in
         --) file="$DEFAULT_FILE" ;;

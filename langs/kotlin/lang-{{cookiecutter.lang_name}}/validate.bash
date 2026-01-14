@@ -4,13 +4,10 @@
 set -o nounset
 set -o pipefail
 
-
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
-    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
-fi
-
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
 tdot "kotlin" "Validating Basic"
 gradle --no-daemon :kt_basic:build  || fail "Gradle Failed"

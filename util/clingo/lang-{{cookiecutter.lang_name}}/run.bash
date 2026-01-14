@@ -5,21 +5,12 @@ set -o pipefail
 
 # shellcheck disable=SC1091
 source "$POLY_SRC/lib/lib-util.bash"
-if [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]]; then
-    source "$POLYGLOT_ROOT/.tasks/task-util.bash"
-fi
+# shellcheck disable=SC1091
+[[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
 DEFAULT_FILE="basic.lp"
 
-function print-help () {
-    case "${@: -1}" in
-        -h|--help) ;;
-        *) if [[ "$#" -gt 0 ]]; then
-               return
-           fi
-           ;;
-    esac
-    echo -e "
+HELP_TEXT="
 usage: polyglot lang clingo run [-h] [packageName] [file|--]? [args...]
 
 positional arguments:
@@ -31,19 +22,12 @@ args         : arguments to pass to clingo
 options:
 -h, --help    : show this help message and exit
 
-
 "
-    exit "${PRINTED_HELP:-2}"
-}
 
 function check-target () {
-    if [[ ! -d "$POLYGLOT_SRC/$1" ]]; then
-        fail "Target Does not exist: $1"
-    fi
+    [[ -d "$POLYGLOT_SRC/$1" ]]    || fail "Target Does not exist: $1"
+    [[ -e "$POLYGLOT_SRC/$1/$2" ]] || fail "Target does not have a file to run: $2"
 
-    if [[ ! -e "$POLYGLOT_SRC/$1/$2" ]]; then
-        fail "Target does not have a file to run: $2"
-    fi
 }
 
 function handle-result () {
@@ -112,7 +96,7 @@ function run-program () {
 }
 
 function main () {
-    print-help "$@"
+    print-help "$HELP_TEXT" 0 "$@"
     tdot "clingo" "Parsing Args"
     shift
     target="$1"
