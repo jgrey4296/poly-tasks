@@ -8,6 +8,17 @@ source "$POLY_SRC/lib/lib-util.bash"
 
 tdot "release" "Calculating Version Number"
 CURR_VERSION=$(version version)
+tdot "release" "Current version: $CURR_VERSION"
+
+read -p "Choose Bump Level (major, minor, patch): " LEVEL
+case "$LEVEL" in
+    major|minor|patch) ;;
+    *)
+        fail "Unknown bump level: $LEVEL"
+    ;;
+esac
+
+
 tdot "release" "Bumping Version Number"
 version "$LEVEL" "set" "+"
 version file update-all
