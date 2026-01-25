@@ -24,10 +24,7 @@ function check-environment () {
     tdot "release" "Checking Environment"
     has_failed=0
 
-    # if [[ -z "${BIBLIO_LIB:-}" ]]; then
-    #     has_failed=1
-    #     echo -e "!-- No BIBLIO_LIB has been defined"
-    # fi
+    # [[ -n "${BIBLIO_LIB:-}" ]] || { $(( has_failed+=1 )); echo -e "!-- No BIBLIO_LIB has been defined"; }
 
     [[ "$has_failed" -eq 0 ]] || fail "Missing EnvVars"
 }

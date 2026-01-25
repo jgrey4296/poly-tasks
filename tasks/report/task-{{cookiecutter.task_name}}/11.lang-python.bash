@@ -14,6 +14,6 @@ source "$POLY_SRC/lib/lib-util.bash"
 # shellcheck disable=SC1091
 [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
-if ( polyglot check lang-python ); then
-    polyglot lang python report
-fi
+( polyglot check lang python ) && polyglot lang python report
+
+exit 0

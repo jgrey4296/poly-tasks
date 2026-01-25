@@ -8,6 +8,6 @@ source "$POLY_SRC/lib/lib-util.bash"
 # shellcheck disable=SC1091
 [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
-if ( polyglot check lang-dotnet ); then
-    polyglot lang dotnet sync
-fi
+( polyglot check lang dotnet ) && polyglot lang dotnet sync
+
+exit 0

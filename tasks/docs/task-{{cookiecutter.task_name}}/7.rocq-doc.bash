@@ -14,6 +14,6 @@ source "$POLY_SRC/lib/lib-util.bash"
 # shellcheck disable=SC1091
 [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
-if ( polyglot check lang-rocq ); then
-    polyglot lang rocq doc "$@"
-fi
+( polyglot check lang rocq ) && polyglot lang rocq doc "$@"
+
+exit 0

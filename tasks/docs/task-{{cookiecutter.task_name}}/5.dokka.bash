@@ -14,6 +14,6 @@ source "$POLY_SRC/lib/lib-util.bash"
 # shellcheck disable=SC1091
 [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
-if ( polyglot check lang-kotlin ); then
-    polyglot lang kotlin doc "$@"
-fi
+( polyglot check lang kotlin ) && polyglot lang kotlin doc "$@"
+
+exit 0
