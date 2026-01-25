@@ -10,4 +10,4 @@ source "$POLY_SRC/lib/lib-util.bash"
 [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
 tdot "asdf" "Exporting"
-asdf plugin list --urls > "$POLYGLOT_ROOT/.asdf.plugins"
+asdf plugin list --urls | sed -E 'N; s/\n//; s/\t//' > "$POLYGLOT_ROOT/.asdf.plugins"

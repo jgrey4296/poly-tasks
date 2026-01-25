@@ -12,15 +12,23 @@ tdot "release" "Current version: $CURR_VERSION"
 
 read -p "Choose Bump Level (major, minor, patch): " LEVEL
 case "$LEVEL" in
-    major|minor|patch) ;;
+    major|minor)
+        version "$LEVEL" set +
+        version "$LEVEL" reset
+        ;;
+    patch)
+        version "$LEVEL" set +
+        ;;
     *)
         fail "Unknown bump level: $LEVEL"
     ;;
 esac
 
-
-tdot "release" "Bumping Version Number"
-version "$LEVEL" "set" "+"
-version file update-all
 NEW_VERSION=$(version version)
-tdot "release" "Project Version $CURR_VERSION -> $NEW_VERSION"
+if ( git --no-pager describe --tag "$NEW_VERSION" ); then
+    git restore *
+    fail "Tag $NEW_VERSION already exists"
+else
+    version file update-all
+    tdot "release" "Project Version $CURR_VERSION -> $NEW_VERSION"
+fi
