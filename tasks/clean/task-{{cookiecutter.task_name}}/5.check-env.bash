@@ -14,7 +14,7 @@ has_failed=()
 
 # [[ -n "${BIBLIO_LIB:-}" ]] || has_failed+=("BIBLIO_LIB")
 
-if [[ "${#has_failed}" -gt 0 ]]; then
+if [[ "${#has_failed[@]}" -gt 0 ]]; then
     tdot "release" "Missing Env vars:"
     for val in "${has_failed[@]}"
     do
