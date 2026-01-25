@@ -20,23 +20,4 @@ options:
 
 "
 
-function check-environment () {
-    tdot "backup" "Checking Environment"
-    has_failed=0
-    if [[ -z "${BIBLIO_LIB:-}" ]]; then
-        has_failed=1
-        echo -e "!-- No BIBLIO_LIB has been defined"
-    fi
-
-    if [[ -z "${BIBLIO_BKUP:-}" ]]; then
-        has_failed=1
-        echo -e "!-- No BIBLIO_BKUP has been defined"
-    fi
-
-    if [[ "$has_failed" -gt 0 ]]; then
-        fail "Missing EnvVars"
-    fi
-}
-
 print-help "$HELP_TEXT" 0 "$@"
-check-environment

@@ -25,22 +25,4 @@ options:
 
 "
 
-
-function check-environment () {
-    tdot "tex" "Checking Environment"
-    has_failed=0
-
-    if [[ -z "${POLYGLOT_TEMP:-}" ]]; then
-        has_failed=1
-        echo -e "!-- No POLYGLOT_TEMP has been defined"
-    fi
-    if [[ -z "${BIBLIO_TEMPLATE_DIR:-}" ]]; then
-        has_failed=1
-        echo -e "!-- No BIBLIO_TEMPLATE_DIR has been defined"
-    fi
-
-    [[ "$has_failed" -eq 0 ]] || fail "Missing EnvVars"
-}
-
 print-help "$HELP_TEXT" 0 "$@"
-check-environment

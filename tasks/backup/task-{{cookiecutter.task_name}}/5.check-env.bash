@@ -12,7 +12,10 @@ source "$POLY_SRC/lib/lib-util.bash"
 tdot "release" "Checking Environment"
 has_failed=()
 
-# [[ -n "${BIBLIO_LIB:-}" ]] || has_failed+=("BIBLIO_LIB")
+[[ -n "${BIBLIO_LIB:-}" ]] || has_failed+=("BIBLIO_LIB")
+[[ -n "${BIBLIO_BKUP:-}" ]] || has_failed+=("BIBLIO_BKUP")
+[[ -n "${BIBLIO_LIB:-}" ]] || has_failed+=("BIBLIO_LIB")
+
 
 if [[ "${#has_failed}" -gt 0 ]]; then
     tdot "release" "Missing Env vars:"

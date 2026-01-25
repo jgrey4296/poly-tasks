@@ -12,7 +12,8 @@ source "$POLY_SRC/lib/lib-util.bash"
 tdot "release" "Checking Environment"
 has_failed=()
 
-# [[ -n "${BIBLIO_LIB:-}" ]] || has_failed+=("BIBLIO_LIB")
+# [[ -n "${POLYGLOT_TEMP:-}" ]] || has_failed+=("POLYGLOT_TEMP")
+# [[ -n "${BIBLIO_TEMPLATE_DIR:-}" ]] || has_failed+=("BIBLIO_TEMPLATE_DIR")
 
 if [[ "${#has_failed}" -gt 0 ]]; then
     tdot "release" "Missing Env vars:"
