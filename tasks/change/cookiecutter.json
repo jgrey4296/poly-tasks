@@ -1,3 +1,4 @@
 {
-    "task_name" : "change"
+    "task_name" : "change",
+    "_copy_without_render": [ "5.check-env.bash" ]
 }

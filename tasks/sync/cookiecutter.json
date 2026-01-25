@@ -1,3 +1,4 @@
 {
-    "task_name": "sync"
+    "task_name": "sync",
+    "_copy_without_render": [ "5.check-env.bash" ]
 }

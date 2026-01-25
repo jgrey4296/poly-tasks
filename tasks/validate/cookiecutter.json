@@ -1,3 +1,4 @@
 {
-    "task_name": "validate"
+    "task_name": "validate",
+    "_copy_without_render": [ "5.check-env.bash" ]
 }
