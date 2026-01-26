@@ -15,11 +15,4 @@ has_failed=()
 # [[ -n "${POLYGLOT_TEMP:-}" ]] || has_failed+=("POLYGLOT_TEMP")
 # [[ -n "${BIBLIO_TEMPLATE_DIR:-}" ]] || has_failed+=("BIBLIO_TEMPLATE_DIR")
 
-if [[ "${#has_failed[@]}" -gt 0 ]]; then
-    tdot "release" "Missing Env vars:"
-    for val in "${has_failed[@]}"
-    do
-        echo "- $val"
-    done
-    fail "Environment Is Not Correct"
-fi
+print-env-failures "${has_failed[@]}"

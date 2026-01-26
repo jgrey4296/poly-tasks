@@ -15,12 +15,4 @@ has_failed=()
 
 # [[ -n "${BIBLIO_LIB:-}" ]] || has_failed+=("BIBLIO_LIB")
 
-
-if [[ "${#has_failed[@]}" -gt 0 ]]; then
-    tdot "release" "Missing Env vars:"
-    for val in "${has_failed[@]}"
-    do
-        echo "- $val"
-    done
-    fail "Environment Is Not Correct"
-fi
+print-env-failures "${has_failed[@]}"
