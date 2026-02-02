@@ -1,0 +1,111 @@
+%% compiler:lualatex 
+% !TeX TS-program = lualatex
+% !TeX encoding = UTF-8
+\documentclass[12pt]{book}
+
+%%-- imports
+\usepackage[subpreambles=true]{standalone} % <--- for merging files
+\usepackage{import}                        % <--- for better importing
+\usepackage{fontspec}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, pdfstartview=FitH]{hyperref}
+\usepackage[russian,english]{babel}
+\usepackage[version=3]{mhchem}
+\usepackage{listings}
+\usepackage[numbers]{natbib}
+\usepackage{doi}
+\usepackage{titling}
+\usepackage{etoc}
+\usepackage{titlesec}
+\usepackage{silence}
+\usepackage{pgfgantt}
+%%-- end imports
+
+\usepackage{responsive-title}
+% \usepackage[inner=7cm, marginparwidth=3cm, marginparsep=2cm]{geometry} % <- modify margins
+
+%%-- warnings
+% \WarningFilter{}{}
+% \suppressfontnotfounderror
+% \suppresslongerror
+% \suppressifcsnameerror
+% \suppressoutererror
+% \suppressmathparerror
+% \suppressprimitiveerror
+\hfuzz=10pt % silences overfull hboxes
+\vfuzz=10pt % silences overfull vboxes
+\overfullrule=0pt
+\tolerance=20000
+\hbadness=100000 % silences underfull hbox warnings
+\vbadness=100000 % silences underfull vbox warnings
+\WarningsOff*
+\ErrorsOff*
+
+%%-- end warnings
+
+\def\fulltitle{TODO Title}
+\def\fullauthor{John Grey}
+
+%%-- metadata
+\AfterPreamble{\hypersetup{
+    pdftitle={\fulltitle},
+    pdfauthor={\fullauthor},
+    pdfsubject={},
+    pdfkeywords={}
+  }}
+
+%%-- end metadata
+
+%%-- title formatting
+\pretitle{
+  \begin{center}
+    \ttfamily \huge 
+}
+\title{\fulltitle}
+\author{\fullauthor}
+\posttitle{
+  \linebreak
+  \normalsize
+  \rule{\linewidth}{1ex}
+  \linebreak
+  \end{center}
+}
+% args: shape, format, label, sep, before, after
+% shape: hang,block,display,runin,{left|right}margin,drop,wrap,frame
+% \renewcommand{\thechapter}{\Roman{chapter}}
+\titleformat{\chapter}
+[display]
+{\bfseries\Large}
+{\filright\MakeUppercase{\chaptertitlename} \Huge\thechapter}
+{4ex}
+{\titlerule \vspace{2ex} \filright}
+[\vspace{2ex} \titlerule]
+
+%%-- end title formatting
+
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+% \listoffigures
+% \listoftables
+\etocsettocstyle{\subsection*{Chapter Contents:}}
+
+\mainmatter
+\setlength{\parskip}{1.5em}
+
+\import{.}{basic}
+\import{.}{event_chain}
+\import{.}{sequents}
+\import{.}{tableaux}
+\import{.}{gantt}
+
+\appendix
+
+\import{.}{layout_check}
+
+\backmatter
+\nocite{*}
+\bibliographystyle{jg_custom.bst}
+\bibliography{local}
+
+\end{document}

@@ -1,0 +1,149 @@
+%% __ -*- mode: LaTeX/FP -*-
+%% compiler:lualatex
+%% available compilers : lualatex pdflatex xelatex
+\documentclass[class=article, crop=false]{standalone}
+
+%%-- imports
+
+\usepackage{import}
+\usepackage{fontspec}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, pdfstartview=FitH]{hyperref}
+\usepackage[numbers]{natbib}
+\usepackage[russian,english]{babel}
+\usepackage[version=3]{mhchem}
+\usepackage{doi}
+\usepackage{listings}
+\usepackage{url}
+
+%%-- end imports
+
+\usepackage{responsive-title}
+% \usepackage[inner=7cm, marginparwidth=3cm, marginparsep=2cm]{geometry} % <- modify margins
+\usepackage{marginnote}
+\usepackage[bottom]{footmisc}
+\usepackage{sidecap}
+\usepackage{savesym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{etoc}
+
+%%-- sequents
+% https://ctan.org/pkg/cmll
+\usepackage{cmll}
+% https://ctan.org/pkg/prftree
+\usepackage{prftree}
+% https://ctan.org/pkg/ebproof
+\usepackage{ebproof}
+
+% TODO: https://ctan.org/pkg/proofs
+%%-- end sequents
+
+%%-- other proofs
+% Other:
+% TODO: https://ctan.org/pkg/ribbonproofs
+
+%%-- end other proofs
+
+%%-- definitions
+% This is the "centered" symbol
+\def\fCenter{{\mbox{\Large$\rightarrow$}}}
+\def\implies{\Large{$\rightarrow$}}
+
+%%-- end definitions
+
+%%-- options
+% Optional to turn on the short abbreviations
+% \EnableBpAbbreviations
+
+% \alwaysRootAtTop  % makes proofs upside down
+% \alwaysRootAtBottom % -- this is the default setting
+% \reversemarginpar
+
+%%-- end options
+
+\def\sequentsTitle{Sequent Examples}
+
+\author{John Grey}
+\date{May 11, 2022}
+\setlength{\parskip}{2em}
+
+\begin{document}
+\resptitle{\sequentsTitle}{\sequentsTitle}
+\renewcommand{\abstractname}{}
+\begin{abstract}
+    Cras placerat accumsan nulla.  
+    Use of different sequent proof packages. \ref{p3} is an example of prftree.
+\end{abstract}
+
+\hrulefill
+\vfill
+\pagebreak
+
+%% ---------- Content ----------
+
+
+%% --------------------------------------------------
+\section*{ebproof}
+
+The ebproof package. 
+
+\begin{figure}[hb]
+  \[
+    \begin{prooftree}
+      \hypo{Q} \hypo{E}
+      \infer2[wf]{D & \vdash O}
+      \hypo{Y}
+      \infer1[oo]{E & \vdash B}
+      \hypo{W}
+      \infer3[a]{B & \vdash Q}
+    \end{prooftree}
+  \] \centering \caption{Simple} \label{eq:eb1}
+\end{figure}
+
+\begin{figure}[hb]
+  \[
+  \begin{prooftree}
+    \hypo{ \Gamma, A &\vdash B }
+    \infer1[abs]{ \Gamma &\vdash A \to B }
+    \hypo{ \Gamma \vdash A }
+    \infer2[app]{ \Gamma \vdash B }
+  \end{prooftree}
+  \] 
+  \centering \caption{Second} \label{eq:eb2}
+\end{figure}
+
+
+%% --------------------------------------------------
+\pagebreak
+\section*{prftree}
+
+The prftree package.
+
+\begin{figure}[hb]
+  % prftree [opts] { label/rulename } { assumption }* {conclusion}
+  \[
+    \prftree[r,double,straight]{lab1} 
+    {\prftree{\Gamma \vdash A}{A \rightarrow B}
+      {\Gamma, A \vdash B}}
+    {\prftree{\Gamma \vdash B}{B \rightarrow C}
+      {\Gamma, B \vdash C}}
+    % concl
+    {\Gamma, A \vdash C} 
+  \]
+  \caption{Proof 3}
+  \label{p3}
+\end{figure}
+
+
+
+%% --------------------------------------------------
+
+\IfStandalone{
+  \nocite{*}
+  \bibliographystyle{jg_custom.bst}
+  \bibliography{}
+  }{}
+
+\end{document}

@@ -1,0 +1,18 @@
+## pyproject.toml -*- mode: Toml -*-
+
+## https://packaging.python.org/en/latest/
+## https://packaging.python.org/en/latest/specifications/pyproject-toml/
+[project]
+name             = "{{cookiecutter.proj_name}}"
+version          = "0.1.0"
+requires-python  = ">={{cookiecutter.python}}"
+description      = {workspace=true}
+readme           = {workspace=true}
+license          = {workspace=true}
+keywords         = []
+dependencies     = []
+
+[tool.uv]
+
+[tool.uv.sources]
+

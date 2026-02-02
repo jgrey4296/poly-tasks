@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="uuid_id">
+    <metadata xmlns:opf="http://www.idpf.org/2007/opf"
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:dcterms="http://purl.org/dc/terms/"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata">
+        <dc:title>{{cookiecutter.proj_name}}</dc:title>
+        <dc:creator opf:file-as="{{cookiecutter._author}}" opf:role="aut">{{cookiecutter._author}}</dc:creator>
+        <dc:language>en</dc:language>
+        <!-- <dc:description></dc:description> -->
+        <!-- <dc:subject></dc:subject> -->
+        <!-- <dc:date></dc:date> -->
+        <meta name="cover" content="cover"/>
+        <meta name="calibre:title_sort" content="{{cookiecutter.proj_name}}"/>
+    </metadata>
+    <manifest>
+        <!-- Table of Contents -->
+        <item id="ncx"       href="toc.ncx"                media-type="application/x-dtbncx+xml"/>
+        <!-- Cover -->
+        <item id="cover"     href="images/cover.png" media-type="image/png"/>
+        <item id="coverpage" href="cover.xhtml"      media-type="application/xhtml+xml"/>
+        <!-- Content -->
+        <item id="title"     href="title.xhtml"            media-type="application/xhtml+xml"/>
+        <item id="nav"       href="nav.xhtml"              media-type="application/xhtml+xml"/>
+        <item id="intro"     href="content/intro.xhtml"    media-type="application/xhtml+xml"/>
+        <item id="ch1"       href="content/ch1.xhtml"      media-type="application/xhtml+xml"/>
+        <!-- Images -->
+        
+        <!-- Styles -->
+        <item id="page_css"  href="styles/page_styles.css" media-type="text/css"/>
+        <item id="css"       href="styles/stylesheet.css"  media-type="text/css"/>
+    </manifest>
+    <spine toc="ncx">
+        <itemref idref="title"/>
+        <itemref idref="intro"/>
+        <itemref idref="ch1"/>
+    </spine>
+    <guide>
+        <reference type="cover"      href="images/cover.png" title="Cover image"/>
+        <reference type="title-page" href="title.xhtml" title="Title"/>
+        <!-- <reference type="toc"        idref="" title="Table Of Contents"/> -->
+    </guide>
+</package>

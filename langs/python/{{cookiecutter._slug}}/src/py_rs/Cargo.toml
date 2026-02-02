@@ -1,0 +1,39 @@
+# #  Cargo.toml -*- mode: TOML -*-
+
+[package]
+name                     = "{{cookiecutter.proj_name}}_bridge_py_rs"
+description              = "A rust bridge to python for {{cookiecutter.proj_name}}"
+version.workspace        = true
+edition.workspace        = true
+rust-version.workspace   = true
+homepage.workspace       = true
+documentation.workspace  = true
+repository.workspace     = true
+authors.workspace        = true
+license.workspace        = true
+
+[lints]
+workspace                = true
+
+[dependencies]
+pyo3.workspace          = true
+{{cookiecutter.proj_name}}_lib_rs.workspace  = true
+
+[dev-dependencies]
+
+[package.metadata.cargo-shear]
+
+[features]
+# https://doc.rust-lang.org/cargo/reference/features.html
+default = []
+
+[package.metadata.dist]
+dist = true
+
+[lib]
+# name needs to match module name in lib.rs
+name               = "_rust"
+path               = "src/lib.rs"
+crate-type         = ["cdylib"]
+proc-macro         = false
+required-features  = []

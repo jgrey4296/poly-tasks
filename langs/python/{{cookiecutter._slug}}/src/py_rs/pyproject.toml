@@ -1,0 +1,29 @@
+# #  pyproject.toml -*- mode: TOML -*-
+
+[project]
+name         = "{{cookiecutter.proj_name}}_bridge_py_rs"
+description  = "Python Submodule for {{cookiecutter.proj_name}} to handle rust interaction"
+version      = "0.1.0"
+readme       = {workspace = true}
+requires-python = ">={{cookiecutter.python}}"
+dependencies = []
+
+##-- build system: maturin
+[build-system]
+requires      = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[tool.maturin]
+# https://www.maturin.rs/config.html
+# compatibility  = "pypi"
+bindings         = "pyo3"  
+features         = ["pyo3/extension-module"]
+manifest-path    = "Cargo.toml"
+module-name      = "{{cookiecutter.proj_name}}_bridge_py_rs._rust"
+
+python-source    = "src"
+python-packages  = ["{{cookiecutter.proj_name}}_bridge_py_rs"]
+
+include          = ["*.so"]
+exclude          = ["**_tests"]
+##-- end build system: maturin

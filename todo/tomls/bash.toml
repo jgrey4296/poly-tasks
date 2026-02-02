@@ -1,6 +1,0 @@
-
-[polyglot.bash]
-suffixes  = [".bash"]
-config    = [".shellcheckrc"]
-prefix    = "sh_"
-active    = []

@@ -1,0 +1,37 @@
+# #  Cargo.toml -*- mode: TOML -*-
+
+[package]
+name                     = "{{cookiecutter.proj_name}}_bridge_el_rs"
+description              = "a bridge to lisp for {{cookiecutter.proj_name}}"
+version.workspace        = true
+edition.workspace        = true
+rust-version.workspace   = true
+homepage.workspace       = true
+documentation.workspace  = true
+repository.workspace     = true
+authors.workspace        = true
+license.workspace        = true
+
+[lints]
+workspace                = true
+
+[dependencies]
+emacs.workspace                              = true
+{{cookiecutter.proj_name}}_lib_rs.workspace  = true
+
+[dev-dependencies]
+
+[package.metadata.cargo-shear]
+
+[features]
+# https://doc.rust-lang.org/cargo/reference/features.html
+default = []
+
+[package.metadata.dist]
+dist = true
+
+[lib]
+name               = "{{cookiecutter.proj_name}}_bridge_el_rs"
+crate-type         = ["cdylib"]
+proc-macro         = false
+required-features  = []

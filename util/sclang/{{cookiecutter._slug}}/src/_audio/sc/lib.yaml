@@ -1,0 +1,11 @@
+#  lib.yaml -*- mode: yaml-ts-mode -*- 
+#  Summary: 
+#  
+#  Tags: 
+#  
+postInlineWarnings: true
+includePaths:
+    - ./classes
+
+excludePaths:
+

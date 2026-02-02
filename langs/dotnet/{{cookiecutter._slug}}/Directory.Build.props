@@ -1,0 +1,7 @@
+<!-- https://learn.microsoft.com/en-us/visualstudio/msbuild/customize-by-directory -->
+<Project>
+  <PropertyGroup>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)/.temp/dotnet/bin/$(Configuration)/$(MSBuildProjectName)/</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)/.temp/dotnet/obj/$(Configuration)/$(MSBuildProjectName)/</BaseIntermediateOutputPath>
+  </PropertyGroup>
+</Project>

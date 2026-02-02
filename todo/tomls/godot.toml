@@ -1,6 +1,0 @@
-
-[polyglot.godot]
-suffixes  = [".gd", ".tscn"]
-config    = ["project.godot", "export_presets.cfg", "preferred_profile.build"]
-prefix    = "gd_"
-active    = []

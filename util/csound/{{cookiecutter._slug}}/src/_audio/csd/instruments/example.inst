@@ -1,0 +1,10 @@
+;;  example.inst -*- mode: Csound Mode -*- 
+
+#include "../opcodes/example.op"
+
+;; An example Instrument
+instr JGInst
+  aSine1 = JGOp:a(0.2, p4)
+    aSine2 = JGOp:a(0.2, p4 - 100)
+  outall(aSine1 + aSine2)  
+endin

@@ -1,6 +1,0 @@
-
-[polyglot.elixir]
-suffixes  = [".exs", ".ex"]
-config    = ["mix.ex", "config.exs", ".formatter.exs"]
-prefix    = "ex_"
-active    = []

@@ -1,0 +1,50 @@
+; record.ledger -*- mode: Ledger -*- 
+
+; include "filename.ledger"
+
+;; Accounts --------------------------------------------------
+account Equity:Opening Balance
+account Assets
+account Assets:Time
+account Assets:Checking
+account Assets:Savings
+
+account Income
+account Income:Salary
+account Income:Investments
+
+account Liabilities
+account Liabilities:Bills
+account Liabilities:Misc
+
+account Expenses
+account Expenses:Time
+account Expenses:Food
+account Expenses:Bills:Electricity
+account Expenses:Bills:Gas
+
+commodity $
+commodity hours
+
+;; For balancing:
+; bucket Assets:Checking
+
+; aliases --------------------------------------------------
+; alias elec=Expenses:Bills:Electricity
+
+;; assert
+;; check
+
+;; Budgets --------------------------------------------------
+; ~ Monthly
+;     Assets:Checking                            $500
+;     Income
+
+
+;; Transactions ---------------------------------------------
+
+; 2025-10-01  * Initialisation
+;     Assets:Checking                             $100
+;     Assets:Savings                              $100
+;     Equity:Opening Balance                    
+    

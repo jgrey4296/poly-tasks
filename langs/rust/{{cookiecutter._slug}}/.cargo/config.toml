@@ -1,0 +1,52 @@
+# config.toml -*- mode: TOML -*-
+# https://doc.rust-lang.org/cargo/reference/config.html
+
+[alias]
+cfgs   = "-Z unstable-options rustc --print=cfg"
+wdoc   = "doc --workspace --document-hidden-items --document-private-items --open"
+
+[build]
+target-dir      = ".temp/build"
+# rustflags     = []
+# rustdocflags  = []
+
+[env]
+
+[term]
+
+
+###-- targets
+[target.x86_64-apple-darwin]
+rustflags = [
+  "-C", "link-arg=-undefined",
+  "-C", "link-arg=dynamic_lookup",
+]
+
+###-- end targets
+
+###-- profiles
+[profile.release]
+strip  = true
+lto    = "fat"
+
+[profile.profiling]
+inherits  = "release"
+strip     = false
+debug     = "full"
+lto       = false
+
+[profile.minimal-size]
+inherits       = "release"
+opt-level      = "z"
+panic          = "abort"  # still panics, skips unwind.
+codegen-units  = 1
+
+[profile.dist]
+inherits = "release"
+
+[profile.fast-build]
+inherits  = "dev"
+debug     = 0
+strip     = "debuginfo"
+
+###-- end profiles

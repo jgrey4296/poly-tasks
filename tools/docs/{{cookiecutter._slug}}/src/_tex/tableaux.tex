@@ -1,0 +1,151 @@
+%% __ -*- mode: LaTeX/FP -*-
+%% compiler:lualatex
+%% available compilers : lualatex pdflatex xelatex
+\documentclass[class=article, crop=false]{standalone}
+
+%%-- imports
+
+\usepackage{import}
+\usepackage{fontspec}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, pdfstartview=FitH]{hyperref}
+\usepackage[numbers]{natbib}
+\usepackage[russian,english]{babel}
+\usepackage[version=3]{mhchem}
+\usepackage{doi}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{marginnote}
+\usepackage[bottom]{footmisc}
+\usepackage{sidecap}
+\usepackage{savesym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{latexsym}
+
+%%-- end imports
+
+\usepackage{responsive-title}
+% \usepackage[inner=7cm, marginparwidth=3cm, marginparsep=2cm]{geometry} % <- modify margins
+\usepackage{cmll}
+
+%%-- tableau
+% https://ctan.org/pkg/fitch 
+\usepackage{fitch}
+% https://ctan.org/pkg/natded
+\usepackage{natded}
+% https://ctan.org/pkg/synproof
+% \usepackage{synproof}
+% https://ctan.org/pkg/lplfitch
+% \savesymbol{subproof}
+\usepackage{lplfitch}
+% \restoresymbol{LPL}{subproof}
+
+%%-- end tableau
+
+%%-- other proofs
+% Other:
+% TODO: https://ctan.org/pkg/ribbonproofs
+
+%%-- end other proofs
+
+%%-- definitions
+% This is the "centered" symbol
+\def\fCenter{{\mbox{\Large$\rightarrow$}}}
+\def\implies{\Large{$\rightarrow$}}
+
+%%-- end definitions
+
+%%-- options
+% Optional to turn on the short abbreviations
+% \EnableBpAbbreviations
+
+% \alwaysRootAtTop  % makes proofs upside down
+% \alwaysRootAtBottom % -- this is the default setting
+% \reversemarginpar
+
+%%-- end options
+
+\def\tableauxTitle{Tableauxs}
+\author{John Grey}
+\date{May 11, 2022}
+\setlength{\parskip}{2em}
+
+\begin{document}
+\resptitle{\tableauxTitle}{\tableauxTitle}
+\renewcommand{\abstractname}{}
+\begin{abstract}
+  Examples of Tableau Proof packages. \ref{eq:f1} is a fitch tableaux.
+  Meanwhile \ref{eq:nd1} is a natded example and \ref{eq:lpl1} is a logicproof example.
+\end{abstract}
+
+\hrulefill
+\vfill
+\pagebreak
+
+%% ---------- Content ----------
+
+
+
+%% --------------------------------------------------
+\pagebreak
+\section*{fitch}
+Next is a derivation tree.
+Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam euismod tellus id erat.
+
+
+\begin{figure}[hb]
+  \begin{equation}
+    \begin{nd}
+      \hypo {top} {A}
+      \hypo {2} {A \multimapinv B}
+      \open[a,b]
+      \hypo {x} {another}
+      \have {y} {y} \by {blah} {}
+      \open
+      \hypo {as} {Q}
+      \have {z} {C} \by {reasons} {top}
+      \have {z} {C} \by {reasons} {top}
+      \close
+      \close
+    \end{nd}
+  \end{equation}
+  \caption{\label{eq:f1}}
+\end{figure}
+
+%% --------------------------------------------------
+
+\pagebreak
+\section*{lplfitch}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit
+tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et,
+mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis
+parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.
+Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.
+Nam vestibulum accumsan nisl.
+
+\begin{figure}[hb]
+  \fitchprf{A}{
+    \subproof{\pline[1.]{A \rightarrow B}{blah}}{
+      \subproof{B}{
+        \pline[2.]{A}\\
+        \pline[3.]{B}
+      }
+      \pline{D}
+    }
+    \pline[4.]{C}
+  }
+  \centering
+  \caption{\label{eq:lpl1}}
+\end{figure}
+
+%% --------------------------------------------------
+
+\IfStandalone{
+  \nocite{*}
+  \bibliographystyle{jg_custom.bst}
+  \bibliography{}
+  }{}
+
+\end{document}

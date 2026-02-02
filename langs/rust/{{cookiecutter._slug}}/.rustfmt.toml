@@ -1,0 +1,64 @@
+## .rustfmt.toml -*- mode: Toml -*-
+# https://rust-lang.github.io/rustfmt/?version=v0.8.0
+edition                       = "{{cookiecutter.edition}}"
+style_edition                 = "{{cookiecutter.edition}}"
+unstable_features             = false
+
+binop_separator               = "Front"
+control_brace_style           = "AlwaysSameLine"
+brace_style                   = "SameLineWhere"
+fn_params_layout              = "Compressed"
+group_imports                 = "StdExternalCrate" # StdExternalCrate, One, Preserve
+imports_indent                = "Block"
+imports_layout                = "Mixed"
+imports_granularity           = "Crate"
+indent_style                  = "Block"
+match_arm_leading_pipes       = "Always"
+trailing_comma                = "Vertical"
+type_punctuation_density      = "Compressed"  # Compressed, Wide
+
+# inline_attr_width             = 0
+blank_lines_lower_bound       = 0
+blank_lines_upper_bound       = 1
+comment_width                 = 80
+enum_discrim_align_threshold  = 20
+struct_field_align_threshold  = 20
+fn_call_width                 = 60
+struct_lit_width              = 20
+struct_variant_width          = 35
+tab_spaces                    = 4
+max_width                     = 100
+
+use_try_shorthand             = true
+where_single_line             = true
+use_field_init_shorthand      = false
+trailing_semicolon            = true
+# space_around_ranges           = true
+struct_lit_single_line        = true
+empty_item_single_line        = true
+fn_single_line                = true
+force_explicit_abi            = true
+force_multiline_blocks        = false
+format_code_in_doc_comments   = false
+format_generated_files        = true
+format_macro_bodies           = true
+# format_macro_matches          = false
+format_strings                = false
+hard_tabs                     = false
+match_arm_blocks              = true
+match_block_trailing_comma    = true
+merge_derives                 = true
+remove_nested_parens          = true
+reorder_impl_items            = true
+reorder_imports               = true
+reorder_modules               = true
+space_after_colon             = false
+space_before_colon            = false
+
+skip_macro_invocations        = []
+
+# Paths to files:
+ignore                        = []
+
+
+

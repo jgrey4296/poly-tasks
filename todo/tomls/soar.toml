@@ -1,6 +1,0 @@
-
-[polyglot.soar]
-suffixes  = [".soar", ".vsa"]
-config    = []
-prefix    = "soar_"
-active    = []

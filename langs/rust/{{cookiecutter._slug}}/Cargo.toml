@@ -1,0 +1,85 @@
+## Cargo.toml -*- mode: toml -*-
+# https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[workspace]
+resolver         = "3"
+members          = ["src/rs_*", "src/py_rs"]
+default-members  = ["src/rs_exe", "src/rs_lib"]
+exclude          = [
+    "src/_*",
+    "src/_docs",
+]
+
+[workspace.package]
+version        = "0.1.0"
+rust-version   = "{{cookiecutter.channel}}"
+edition        = "{{cookiecutter.edition}}"
+authors        = ["{{cookiecutter._author}}"]
+homepage       = "https://{{cookiecutter.proj_name}}.readthedocs.io"
+documentation  = "https://{{cookiecutter.proj_name}}.readthedocs.io"
+repository     = "https://github.com/jgrey4296/{{cookiecutter.proj_name}}"
+license        = "ACAB"
+
+##-- dependencies
+[workspace.dependencies]
+# Internal deps:
+# lib                                    = { path="src/rs_lib", default-features=false, features=[] }
+{{cookiecutter.proj_name}}_rs            = {path="src/rs_bin"}
+{{cookiecutter.proj_name}}_lib_rs        = {path="src/rs_lib"}
+{{cookiecutter.proj_name}}_bridge_c_rs   = {path="src/rs_c"}
+{{cookiecutter.proj_name}}_bridge_el_rs  = {path="src/rs_el"}
+{{cookiecutter.proj_name}}_macros        = {path="src/rs_macros"}
+{{cookiecutter.proj_name}}_bridge_py_rs  = {path="src/py_rs"}
+
+# External deps:
+# lib                                    = { version="1.0" }
+
+## For Macros
+proc-macro2  = "1.0.101"
+quote        = "1.0.40"
+syn          = "2.0.106"
+textwrap     = "0.16.2"
+
+## For language interop
+cty          = "0.2.2."
+libc         = "0.2.175"
+emacs        = "0.19"
+pyo3         = "0.22.0"
+
+
+[workspace.dev-dependencies]
+flamegraph         = "0.6.9"
+maturin            = "1.9.4"
+mdbook             = "0.4.52"
+version-manager    = "3.0.0"
+cargo-autoinherit  = "0.1.6"
+cargo-valgrind     = "2.3.2"
+cargo-expand       = "1.0.116"
+cargo-with         = "0.3.2"
+
+[workspace.build-dependencies]
+bindgen            = "0.72.1"
+cc                 = "1.2.36"
+
+[patch.crates-io]
+
+##-- end dependencies
+
+##-- tools
+[workspace.metadata]
+
+[workspace.lints]
+# https://doc.rust-lang.org/cargo/reference/manifest.html#the-lints-section
+
+[workspace.lints.rust]
+unused_imports          = "allow"
+dead_code               = "allow"
+unused_variables        = "allow"
+unsafe-op-in-unsafe-fn  = "allow"
+unused_parens           = "allow"
+
+[workspace.lints.clippy]
+single_component_path_imports  = "allow"
+
+##-- end tools
+

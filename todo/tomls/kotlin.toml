@@ -1,9 +1,0 @@
-
-[polyglot.kotlin]
-suffixes  = [".kt", ".kts"]
-config    = [
-          "settings.gradle.kts", "build.gradle.kts", "gradle.properties",
-          ".sdkmanrc"
-]
-prefix    = "kt_"
-active    = []

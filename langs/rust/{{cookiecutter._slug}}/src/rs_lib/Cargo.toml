@@ -1,0 +1,39 @@
+# Cargo.toml -*- mode: Toml -*- 
+
+[package]
+name                     = "{{cookiecutter.proj_name}}_lib_rs"
+version                  = "0.1.0"
+description              = "rust library crate for {{cookiecutter.proj_name}}"
+edition.workspace        = true
+rust-version.workspace   = true
+homepage.workspace       = true
+documentation.workspace  = true
+repository.workspace     = true
+authors.workspace        = true
+license.workspace        = true
+
+[package.metadata.dist]
+dist                     = true
+
+[features]
+# https://doc.rust-lang.org/cargo/reference/features.html
+default = []
+
+[dependencies]
+{{cookiecutter.proj_name}}_macros.workspace  = true
+
+[dev-dependencies]
+
+[build-dependencies]
+
+[lints]
+workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+# [target.'cfg(debug)'.dependencies]
+
+
+
+

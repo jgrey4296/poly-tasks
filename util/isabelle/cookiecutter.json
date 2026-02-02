@@ -1,3 +1,18 @@
 {
-    "lang_name": "isabelle"
+    "_slug": "_slug",
+    "proj_name": "polyglot project template",
+    "edition": "2024",
+    "channel": "1.88",
+    "entry_point": "__main__",
+    "python": "3.13",
+    "_author": "me",
+    "_copy_without_render": [
+        "src/_data",
+        "src/_tex",
+        "src/_changes",
+        ".github"
+    ],
+    "_email": "my@email.com",
+    "_github_username": "me",
+    "_short_name": "me"
 }

@@ -1,0 +1,17 @@
+# simple.soar -*- mode: soar -*-
+echo -- -- Loading simple.soar
+
+sp {simple*setup
+   (state <s> ^type state
+              ^superstate nil)
+-->
+   (write |---- Starting Agent ----|)
+}
+
+sp {simple*finish
+   (state <s> ^type state)
+   (<s> ^count 10)
+-->
+   (write |---- Finished Agent ----|(crlf))
+   (interrupt)
+}

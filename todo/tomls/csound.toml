@@ -1,6 +1,0 @@
-
-[polyglot.csound]
-suffixes = [".csd", ".inst", ".op"]
-config = []
-prefix = "csd_"
-active = []

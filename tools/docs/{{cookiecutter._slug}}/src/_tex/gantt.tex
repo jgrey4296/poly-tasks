@@ -1,0 +1,137 @@
+%% __ -*- mode: LaTeX/FP -*-
+%% compiler:lualatex 
+%% available compilers : lualatex pdflatex xelatex
+\documentclass[class=article, crop=false]{standalone}
+
+%%-- imports
+
+\usepackage{fontspec}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, pdfstartview=FitH]{hyperref}
+\usepackage[numbers]{natbib}
+\usepackage[russian,english]{babel}
+\usepackage[version=3]{mhchem}
+\usepackage{doi}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{marginnote}
+\usepackage[bottom]{footmisc}
+\usepackage{sidecap}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{latexsym}
+
+%%-- end imports
+
+\usepackage{responsive-title}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{lscape}
+\usepackage{pgfgantt}
+\usepackage{longtable}
+\usepackage[margin=1cm]{geometry}
+
+\def\ganntTitle{Gannt}
+
+\author{John Grey}
+\date{21-09-2025}
+\setlength{\parskip}{2em}
+
+\pagestyle{empty}
+\thispagestyle{empty}
+%% Only if the base font of the document is to be sans serif:
+\renewcommand*\familydefault{\sfdefault}
+
+\begin{document}
+\resptitle{\ganntTitle}{\ganntTitle}
+\renewcommand{\abstractname}{}
+\begin{abstract}
+Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.
+\end{abstract}
+
+\hrulefill
+\vfill
+\pagebreak
+%% ---------- Content ----------
+\begin{figure}
+  \begin{longtable}{@{}r@{}}
+    % \begin{ganttchart} [hgrid,vgrid,canvas/.style={draw=none},bar/.append style={fill=gray}, x unit=1cm,y unit chart=1cm]{0}{4}
+    \begin{ganttchart} [hgrid,vgrid,canvas/.style={draw=none},bar/.append style={fill=gray}, x unit=1cm, y unit title=1cm]{0}{4}
+      \gantttitle{Observed Events}{5}\ganttnewline
+      \gantttitlelist{0, ..., 4}{1}\\
+      \ganttmilestone{ex\_blue(foo)}{1}\ganttnewline
+
+\ganttmilestone{ex\_green(foo)}{2}\ganttnewline
+
+\ganttmilestone{ex\_red(foo)}{0}\ganttnewline
+
+    \end{ganttchart}
+  \end{longtable}
+  \caption{Tracking the events in the trace}
+\end{figure}
+
+\begin{figure}
+  \begin{longtable}{@{}r@{}}
+    \begin{ganttchart} [hgrid,vgrid,canvas/.style={draw=none},bar/.append style={fill=gray}, x unit=1cm,y unit chart=1cm]{0}{4}
+      \gantttitle{Fluents}{5}\ganttnewline
+      \gantttitlelist{0, ..., 4}{1}\\
+      \ganttbar{live(basic)}{0}{3}\ganttnewline
+
+\ganttbar{perm(ex\_blue(foo))}{0}{3}\ganttnewline
+
+\ganttbar{perm(ex\_red(foo))}{0}{3}\ganttnewline
+
+\ganttbar{perm(in\_red(foo))}{0}{3}\ganttnewline
+
+\ganttbar{perm(null)}{0}{3}\ganttnewline
+
+\ganttbar{pow(in\_red(foo))}{0}{0}\ganttnewline
+
+\ganttbar{pow(null)}{0}{3}\ganttnewline
+
+    \end{ganttchart}
+  \end{longtable}
+  \caption{Gantt Chart for Fluent lives}
+\end{figure}
+
+\begin{figure}
+  \begin{longtable}{@{}r@{}}
+    \begin{ganttchart} [hgrid,vgrid,canvas/.style={draw=none},bar/.append style={fill=gray}, x unit=1cm,y unit chart=1cm]{0}{4}
+      \gantttitle{basic Fluents}{5}\\
+      \gantttitlelist{0, ..., 4}{1}\\
+      \ganttbar{live(basic)}{0}{3}\ganttnewline
+
+\ganttbar{perm(ex\_blue(foo))}{0}{3}\ganttnewline
+
+\ganttbar{perm(ex\_red(foo))}{0}{3}\ganttnewline
+
+\ganttbar{perm(in\_red(foo))}{0}{3}\ganttnewline
+
+\ganttbar{perm(null)}{0}{3}\ganttnewline
+
+\ganttbar{pow(in\_red(foo))}{0}{0}\ganttnewline
+
+\ganttbar{pow(null)}{0}{3}\ganttnewline
+
+    \end{ganttchart}
+  \end{longtable}
+  \caption{Fluent Lives in institution basic}
+\end{figure}
+
+%% ---------- Footnotes ----------
+
+% \footnotemark[N]
+% \footnotetext[N]{Cras placerat accumsan nulla.}
+
+%% --------------------------------------------------
+
+\clearpage
+
+\IfStandalone{
+  \nocite{*}
+  \bibliographystyle{jg_custom.bst}
+  \bibliography{}
+  }{}
+
+\end{document}

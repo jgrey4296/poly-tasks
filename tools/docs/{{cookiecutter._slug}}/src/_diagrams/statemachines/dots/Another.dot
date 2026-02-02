@@ -1,0 +1,16 @@
+digraph list {
+label=Another;
+fontname=Arial;
+fontsize=10;
+rankdir=LR;
+i [shape=circle, style=filled, fontsize=1, fixedsize=true, width=0.2, height=0.2, fillcolor=black];
+i -> start [label="", color=blue, fontname=Arial, fontsize=9];
+start [label=Start, shape=rectangle, style="rounded, filled", fontname=Arial, fontsize=10, peripheries=1, penwidth=2, fillcolor=turquoise];
+start -> mid1 [label=go, color=blue, fontname=Arial, fontsize=9];
+start -> mid2 [label=go, color=blue, fontname=Arial, fontsize=9];
+mid1 [label=Mid1, shape=rectangle, style="rounded, filled", fontname=Arial, fontsize=10, peripheries=1, fillcolor=white];
+mid1 -> end [label=go, color=blue, fontname=Arial, fontsize=9];
+mid2 [label=Mid2, shape=rectangle, style="rounded, filled", fontname=Arial, fontsize=10, peripheries=1, fillcolor=white];
+mid2 -> end [label=go, color=blue, fontname=Arial, fontsize=9];
+end [label=End, shape=rectangle, style="rounded, filled", fontname=Arial, fontsize=10, peripheries=2, fillcolor=white];
+}

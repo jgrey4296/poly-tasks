@@ -1,0 +1,20 @@
+//// tests.jcm -*- mode: jacamo -*-
+// JaCaMo project used to run the test manager agent
+// (and souce code of the agents to be tested by the manager)
+
+mas test_mas {
+    agent bob: test-agent.asl {
+        //goals: create_tester_agents("./agents", "*.asl")
+        beliefs: auto_shutdown_delay(5000) 
+    }
+
+    asl-path: "./tests/agents"
+              "./agents"
+              "$jacamo/test/jacamo/inc"
+              "$jason/test/jason/inc"
+
+    org-path: ./organisations
+
+    java-path: ./java
+               ./kotlin
+}

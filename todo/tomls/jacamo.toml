@@ -1,5 +1,0 @@
-
-[polyglot.kotlin_jacamo]
-suffixes  = [".asl", ".jcm"]
-config    = []
-active    = []

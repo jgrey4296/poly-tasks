@@ -1,0 +1,11 @@
+;;  example.op -*- mode: Csound Mode -*- 
+
+;; An Example opcode
+;;
+
+opcode JGOp, a, kk
+  kVal, kPitch xin
+  aSine = poscil:a(kVal, kPitch)
+  aOct  = poscil:a(kVal, kPitch * 2)
+  xout (aSine + aOct)
+endop

@@ -1,0 +1,37 @@
+# Cargo.toml -*- mode: Toml -*-
+
+[package]
+name                     = "{{cookiecutter.proj_name}}_exe_rs"
+version                  = "0.1.0"
+description              = "executable rust binary crate for {{cookiecutter.proj_name}}"
+edition.workspace        = true
+rust-version.workspace   = true
+homepage.workspace       = true
+documentation.workspace  = true
+repository.workspace     = true
+authors.workspace        = true
+license.workspace        = true
+
+[package.metadata.dist]
+dist                     = true
+
+[features]
+# https://doc.rust-lang.org/cargo/reference/features.html
+default = []
+
+[dependencies]
+{{cookiecutter.proj_name}}_lib_rs.workspace  = true
+
+[dev-dependencies]
+
+[build-dependencies]
+
+[lints]
+workspace = true
+
+[[bin]]
+name               = "{{cookiecutter.proj_name}}-rs"
+path               = "src/main.rs"
+proc-macro         = false
+
+# [target.'cfg(debug)'.dependencies]

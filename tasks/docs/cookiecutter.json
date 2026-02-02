@@ -1,4 +1,0 @@
-{
-    "task_name": "docs",
-    "_copy_without_render": [ "5.check-env.bash" ]
-}

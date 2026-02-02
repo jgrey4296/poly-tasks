@@ -1,0 +1,5 @@
+<!-- https://learn.microsoft.com/en-us/visualstudio/msbuild/customize-by-directory -->
+<Project>
+  <PropertyGroup>
+  </PropertyGroup>
+</Project>

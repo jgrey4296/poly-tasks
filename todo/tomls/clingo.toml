@@ -1,6 +1,0 @@
-
-[polyglot.clingo]
-suffixes  = [".lp"]
-config    = []
-prefix    = "asp_"
-active    = []

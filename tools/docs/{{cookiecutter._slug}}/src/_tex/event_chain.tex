@@ -1,0 +1,145 @@
+%% compiler:lualatex
+%% available compilers : lualatex pdflatex xelatex
+% !TeX TS-program = lualatex
+% !TeX encoding = UTF-8
+\documentclass[class=article, crop=false]{standalone}
+
+%%-- imports
+\usepackage{iftex}
+\usepackage{fontspec}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, pdfstartview=FitH]{hyperref}
+\usepackage[numbers]{natbib}
+\usepackage[russian,english]{babel}
+\usepackage[version=3]{mhchem}
+\usepackage{doi}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{lettrine}
+\usepackage{titling}
+\usepackage{pdflscape}
+\usepackage{geometry}
+%%-- end imports
+
+\usepackage{responsive-title}
+\usepackage{eventchain}
+
+\def\eventChainTitle{Event Chains Example}
+\author{John Grey}
+\date{21-09-2025}
+\setlength{\parskip}{2em}
+
+\tikzset{
+  /eventchain/node/.style={draw,circle,font=\tiny},
+  % /eventchain/event/node/.style={.default=/eventchain/node, fill=blue!20, shape=diamond},
+  % /eventchain/event/box/.style={-latex, fill=blue!20, shape=rectangle},
+  % /eventchain/state/node/.style={.default=/eventchain/node, fill=red!21},
+  % /eventchain/state/box/.style={-latex, fill=red!20, shape=rectangle, rounded corners},
+  % /eventchain/skip/node/.style={.default=/eventchain/node, draw=none},
+}
+
+\begin{document}
+\resptitle{\eventChainTitle}{\eventChainTitle}
+\renewcommand{\abstractname}{}
+\begin{abstract}
+Examples of the use of `eventchain'. Both vertical and horizontal. 
+\end{abstract}
+
+\hrulefill
+\vfill
+\pagebreak
+
+%% ---------- Content ----------
+\begin{figure}
+  \begin{center}
+  \begin{eventchain}[start=5, dist=0.5cm]
+    \state
+    \begin{event}[name=First Event, dist=1cm, cols=2, fmt={c | l}]
+      bloo ($ \alpha \omega $) \\
+    \end{event}
+    \begin{fluents}[name=Fluents, dist=2cm, cols=2, fmt={c | l}]
+      \addfluent{blah} \\
+      \subfluent{bloo($ \alpha \omega $)} \\
+      \keepfluent{aweg} \\
+    \end{fluents}
+    \begin{event}[name=Second Event, cols=2, fmt={c | l}]
+      \subfluent{aweg} \\
+      awegjoi \\
+    \end{event}
+    \begin{event}[name=Third Event]
+      baweg \\
+      awegjoi \\
+    \end{event}
+  \end{eventchain}
+  \end{center}
+  \caption{A Top-Bottom example}
+\end{figure}
+
+\pagebreak
+
+\begin{landscape}
+  \begin{figure}[th]
+    \caption{A Left-Right Example}
+    \begin{center}
+    \begin{eventchain}[dir=right, dist=0.2cm]
+      \state[5]
+      \state
+      \state
+      \state
+      \state
+      % \event
+      \begin{event}[name=Event, dist=0.7cm]
+        blah \\
+        aweg \\
+      \end{event}
+      \state
+      \begin{fluents}[name=State, dist=0.7cm, cols=2, fmt={c | l}]
+        \addfluent{blah} \\
+        \subfluent{bloo($ \alpha \omega $)} \\
+      \end{fluents}
+      \state
+      \state
+      \state
+      \jumpto[100]
+    \end{eventchain}
+    \end{center}
+  \end{figure}
+
+  \hrulefill
+
+  \begin{figure}[bh]
+    \begin{center}
+    \begin{eventchain}[dir=right, dist=0.2cm]
+      \state[5]
+      \state
+      \state
+      \jumpto[10]
+      \state
+      \state
+      % \event
+      \begin{event}[name=Event, dist=0.7cm]
+        blah \\
+        bloo($ \alpha \omega $) \\
+      \end{event}
+      \state
+      \begin{fluents}[name=State, dist=0.7cm, cols=2, fmt={c | l}]
+        \addfluent{blah} \\
+        \subfluent{bloo($ \alpha \omega $)} \\
+      \end{fluents}
+      \state
+      \state
+      \state
+      \jumpto[100]
+    \end{eventchain}
+    \end{center}
+    \caption{A Left-Right Example}
+  \end{figure}
+\end{landscape}
+\restoregeometry
+
+%% ---------- Footnotes ----------
+
+% \footnotemark[N]
+% \footnotetext[N]{Cras placerat accumsan nulla.}
+
+%% --------------------------------------------------
+\end{document}

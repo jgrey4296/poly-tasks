@@ -1,0 +1,36 @@
+[package]
+name                     = "{{cookiecutter.proj_name}}_bridge_c_rs"
+version                  = "0.1.0"
+description              = "rust to c lang bridge for {{cookiecutter.proj_name}}"
+edition.workspace        = true
+rust-version.workspace   = true
+homepage.workspace       = true
+documentation.workspace  = true
+repository.workspace     = true
+authors.workspace        = true
+license.workspace        = true
+
+[package.metadata.dist]
+dist                     = true
+
+[features]
+# https://doc.rust-lang.org/cargo/reference/features.html
+default = []
+
+[dependencies]
+libc.workspace  = true
+cty             = "0.2.2"
+
+[dev-dependencies]
+
+[build-dependencies]
+bindgen         = "0.72.1"
+cc              = "1.2.36"
+
+[lints]
+workspace = true
+
+[[bin]]
+name               = "{{cookiecutter.proj_name}}-c-rs"
+path               = "src/main.rs"
+proc-macro         = false        

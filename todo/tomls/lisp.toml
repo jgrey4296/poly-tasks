@@ -1,6 +1,0 @@
-
-[polyglot.lisp]
-suffixes  = [".el"]
-config    = ["Eask"]
-prefix    = "el_"
-active    = []

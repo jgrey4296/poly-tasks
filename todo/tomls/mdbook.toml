@@ -1,7 +1,0 @@
-
-
-[polyglot.docgen.mdbook]
-suffixes  = ["book.toml"]
-config    = []
-active    = []
-dirs      = ["_book"]

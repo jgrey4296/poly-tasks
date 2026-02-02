@@ -1,0 +1,35 @@
+# project.soar -*- mode: soar -*-
+# Run with: soar -s main.soar [run {count}]
+
+echo \n -- Setup
+stop
+# trace --assertions
+# trace --gds-wmes
+# trace --indifferent-selection
+# trace --rl
+# trace --fulwmes
+# trace --bactracking
+# trace --learning 1
+# trace --epmem
+# trace --smem
+# trace --wma
+# trace -N
+# output warnings off
+# output echo-commands off
+
+# trace -D
+# trace -u
+# output agent-logs 1 off
+
+soar max-elaborations 4
+
+echo \n -- Loading
+pushd src
+load file simple.soar
+load file count.soar
+popd
+
+echo \n -- Setting WM
+# wm add S1 ^state init
+
+echo \n -- Ready

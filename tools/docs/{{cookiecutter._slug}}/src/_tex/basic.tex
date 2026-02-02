@@ -1,0 +1,85 @@
+%% __ -*- mode: LaTeX/FP -*-
+%% compiler:lualatex
+\documentclass[class=article, crop=false]{standalone}
+
+%%-- imports
+\usepackage{iftex}
+\usepackage{fontspec}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, pdfstartview=FitH]{hyperref}
+\usepackage[numbers]{natbib}
+\usepackage[russian,english]{babel}
+\usepackage[version=3]{mhchem}
+\usepackage{doi}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{lettrine}
+\usepackage{titling}
+%%-- end imports
+
+\usepackage{responsive-title}
+\usepackage{quickfont}
+% \setQuickFoncLoc{/home/john/.local/share/fonts}
+\setquickmain{Cardinal-Alternate.ttf}
+
+\def\basicTitle{Basic Blah}
+
+\setlength{\parskip}{2em}
+\author{John Grey}
+\date{21-09-2025}
+
+\begin{document}
+\resptitle{\basicTitle}{\basicTitle}
+\renewcommand{\abstractname}{}
+\begin{abstract}
+Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.
+\end{abstract}
+
+\hrulefill
+\vfill
+\pagebreak
+%% ---------- Content ----------
+
+
+
+\lettrine[lines=3]{A}{liquam} erat volutpat.  Nunc eleifend leo vitae magna. \sf{Pellentesque dapibus suscipit ligula.}. \cite{abnett07__broth_snake_} 
+\rmfamily Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam euismod tellus id erat.
+
+\begin{center}
+  \huge{Têtiñg} 
+\end{center}
+
+\normalsize  \tt{Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.}
+
+\begin{quickmain}{royal.ttf}
+A quickmain section. blah blah blah.
+\end{quickmain}
+
+\begin{quickmain}{}
+A quickmain section. blah blah blah.
+\end{quickmain}
+
+\begin{quickmain}{who_asks_satan.ttf}
+  This is a quick sans section.
+\end{quickmain}
+  
+\begin{quickmain}{royal.ttf}
+  this is a quick mono section.
+\end{quickmain}
+
+\noindent Return to normal.
+
+%% ---------- Footnotes ----------
+
+% \footnotemark[N]
+% \footnotetext[N]{Cras placerat accumsan nulla.}
+
+%% --------------------------------------------------
+
+
+\IfStandalone{
+  \nocite{*}
+  \bibliographystyle{jg_custom.bst}
+  \bibliography{local}
+  }{}
+
+\end{document}

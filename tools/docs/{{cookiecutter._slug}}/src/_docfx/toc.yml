@@ -1,0 +1,17 @@
+#  toc.yml -*- mode: YAML -*- 
+
+items: 
+  - name: intro
+    href: introduction.md
+  - name: Getting Started
+    href: getting-started.md
+  - name: contents
+    items:
+      - name: CSharp Executable
+        href: ../cs_exe/
+      - name: FSharp Executable
+        href: ../fs_exe/
+      - name: CSharp Library
+        href: ../cs_lib/
+      - name: API
+        href: ../../.temp/dotnet/api/

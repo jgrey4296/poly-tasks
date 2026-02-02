@@ -1,0 +1,9 @@
+#  toc.yml -*- mode: yaml-mode -*-
+#  Summary:
+# 
+#  Tags:
+#  
+
+items:
+  - name: C# Blazor Server
+    href: index.md

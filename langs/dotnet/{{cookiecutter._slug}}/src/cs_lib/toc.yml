@@ -1,0 +1,9 @@
+#  toc.yml -*- mode: yaml-mode -*-
+#  Summary:
+# 
+#  Tags:
+#  
+
+items:
+  - name: {{cookiecutter.proj_name}} CSharp Library
+    href: index.md

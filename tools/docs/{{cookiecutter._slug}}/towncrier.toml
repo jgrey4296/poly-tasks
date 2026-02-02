@@ -1,0 +1,26 @@
+# towncrier.toml -*- mode: toml-mode -*-
+# Summary:
+#
+# Tags:
+#
+## https://towncrier.readthedocs.io/en/stable/configuration.html
+[tool.towncrier]
+name         = "{{cookiecutter.proj_name}}"
+version      = "0.1.0"
+filename     = "CHANGELOG.md"
+package_dir  = "src"
+directory    = "src/_changes"
+template     = "src/_changes/template.md"
+
+[[tool.towncrier.section]]
+name  = "Python"
+path  = "python"
+
+[[tool.towncrier.section]]
+name = "Rust"
+path = "rust"
+
+[[tool.towncrier.section]]
+name = "Lisp"
+path = "lisp"
+

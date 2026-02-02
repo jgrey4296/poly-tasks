@@ -1,0 +1,47 @@
+%% __ -*- mode: LaTeX/FP -*-
+%% compiler:lualatex
+%% available compilers : lualatex pdflatex xelatex
+\documentclass[class=article, crop=false]{standalone}
+
+%%-- imports
+
+\usepackage{fontspec}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, pdfstartview=FitH]{hyperref}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{layout}
+\usepackage{pdflscape}
+
+%%-- end imports
+\usepackage{responsive-title}
+
+\def\layoutCheckTitle{Layout Check}
+
+\author{John Grey}
+\date{24-09-2025}
+\setlength{\parskip}{2em}
+
+\begin{document}
+\resptitle{\layoutCheckTitle}{\layoutCheckTitle}
+\renewcommand{\abstractname}{} 
+\begin{abstract}
+Nam euismod tellus id erat.  
+\end{abstract}
+
+\hrulefill
+\vfill
+\pagebreak
+
+%% ---------- Content ----------
+
+\layout{}
+
+%% ---------- Footnotes ----------
+
+% \footnotemark[N]
+% \footnotetext[N]{Cras placerat accumsan nulla.}
+
+%% --------------------------------------------------
+
+
+\end{document}

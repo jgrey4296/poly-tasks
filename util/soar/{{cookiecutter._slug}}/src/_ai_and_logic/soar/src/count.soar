@@ -1,0 +1,43 @@
+# count.soar -*- mode: soar -*- 
+echo -- -- Loading count.soar
+
+sp {simple*count*propose-init
+   (state <s> ^type state)
+   (<s> -^count)
+   -->
+   (<s> ^operator <o1> +)       
+   (<o1> ^name count-init)
+}
+
+sp {simple*count*propose-actual
+   (state <s> ^type state)
+   (<s> ^count)
+   -->
+   (<s> ^operator <o1> > <o2>)
+   (<s> ^operator <o1> +)
+   (<o1> ^name count-actual)
+   (<o2> ^name count-init)
+
+}
+
+sp {simple*count
+   (state <s> ^type state
+              ^operator <o>)
+   (<o> ^name count-actual)
+   (<s> ^count <val>)
+-->
+   (write (crlf) |--- Count is: | <val> (crlf))
+   (<s> ^count <val> -
+        ^count (+ 1 <val>) +
+        )
+}
+
+sp {simple*count*init
+   (state <s> ^type state
+              ^operator <o>)
+   (<o> ^name count-init)
+   (<s> -^count)  
+-->
+   (write (crlf) |--- Setting up count| (crlf))
+   (<s> ^count (int 1))
+}

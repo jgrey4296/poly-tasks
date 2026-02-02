@@ -1,0 +1,7 @@
+# #  rust-toolchain.toml -*- mode: TOML -*-
+# https://rust-lang.github.io/rustup/overrides.html#the-toolchain-file
+[toolchain]
+# channel   = "nightly-x86_64-unknown-linux-gnu"
+channel     = "{{cookiecutter.channel}}"
+components  = ["rustfmt", "clippy", "rust-analyzer", "rustc", "cargo", "rust-std", "rust-docs"]
+targets     = []

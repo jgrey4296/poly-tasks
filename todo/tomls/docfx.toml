@@ -1,6 +1,0 @@
-
-[polyglot.docgen.docfx]
-suffixes  = [".md", ".yml"]
-config    = ["docfx.json"]
-dirs      = ["_docfx"]
-active    = []
