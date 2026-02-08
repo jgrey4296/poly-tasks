@@ -10,13 +10,20 @@ source "$POLY_SRC/lib/lib-util.bash"
 [[ -e "$POLYGLOT_ROOT/.tasks/task-util.bash" ]] && source "$POLYGLOT_ROOT/.tasks/task-util.bash"
 
 HELP_TEXT="
-usage: polyglot task {taskname} [args ...] [-h]
+usage: polyglot task release [args ...] --[major|minor|patch] [-h]
+
+run release tasks. ie: increment version number, generate changelog...
+
+If no level is specified, will read input
 
 positional arguments:
 args          :
 
 options:
 -h, --help    : show this help message and exit
+--major : bump the major number.
+--minor : bump the minor number.
+--patch : bump the patch number.
 
 "
 print-help "$HELP_TEXT" 0 "$@"
