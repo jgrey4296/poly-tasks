@@ -18,6 +18,14 @@ boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://src/gd/sprites/icon.svg"
 
+[dotnet]
+
+project/assembly_name="{{cookiecutter.proj_name}}"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
 [display]
 
 window/size/viewport_width=1200
