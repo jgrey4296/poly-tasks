@@ -16,7 +16,7 @@ opam switch create "$switchname" "$ocaml_version"
 eval $(opam env)
 
 OPAM_DEFAULT_INSTALLS=(ocaml-lsp-server odoc ocamlformat utop dune)
-ROCQ_PIN="9.0.0"
+ROCQ_PIN="${ROCQ_PIN:-9.0.0}"
 ROCQ_REPO="https://rocq-prover.org/opam/released"
 
 if [[ -e "$POLYGLOT_ROOT/.opam" ]]; then

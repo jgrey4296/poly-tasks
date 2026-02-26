@@ -1,17 +1,8 @@
 # https://rocq-prover.org/doc/V9.0.0/refman/practical-tools/utilities.html#building-a-project-with-coqproject-overview
 # https://rocq-prover.org/doc/V9.0.0/refman/practical-tools/coq-commands.html#command-line-options
 
-# -I dir                 look for ML files in dir
-# -include dir           (idem)
-# -R dir coqdir          recursively map physical dir to logical coqdir
-# -Q dir coqdir          map physical dir to logical coqdir
-# -top coqdir            set the toplevel name to be coqdir instead of Top
-# -topfile f             set the toplevel name as though compiling f
-# -coqlib dir            set the coq standard library directory
-# -exclude-dir f         exclude subdirectories named f for option -R
-
-# '-Q' makes .vo files available for Require.
-# '-R 'declares dir as top level of logical {name}
 
 -Q ./src/_ai_and_logic/rq JG
 -R ./src/_ai_and_logic/rq JGR
+
+-I .temp/dune/install/default/lib

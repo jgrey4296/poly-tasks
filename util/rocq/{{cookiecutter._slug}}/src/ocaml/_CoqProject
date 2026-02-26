@@ -1,0 +1,19 @@
+# Comments in _CoqProject start with # and end with newline
+
+-R theories JG-plugin
+
+-generate-meta-for-package jg_plugin.
+
+-I src
+
+# list our .v files
+theories/Loader.v
+
+# list our ocaml files
+src/jg.ml
+src/jg.mli
+src/sytax.mlg
+
+# mlpack is a "rocq makefile" specific file
+# cf plugin tutorial README
+src/jg_plugin.mlpack

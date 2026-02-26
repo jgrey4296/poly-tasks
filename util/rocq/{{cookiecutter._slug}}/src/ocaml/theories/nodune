@@ -1,0 +1,8 @@
+; dune<3> -*- mode: dune -*-
+
+(rocq.theory
+ (name Loader)
+ (package jg-plugin)
+ (plugins jg-plugin.ocaml.plugin)
+ (stdlib no)
+)

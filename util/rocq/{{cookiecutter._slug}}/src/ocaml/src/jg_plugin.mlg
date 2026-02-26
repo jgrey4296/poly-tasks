@@ -1,0 +1,7 @@
+(*  jg_plugin.mlg -*- mode: tuareg -*- *)
+
+DECLARE PLUGIN "jg-plugin.ocaml"
+
+VERNAC COMMAND EXTEND Blah CLASSIFIED AS QUERY
+| [ "Blah" ] -> { Feedback.msg_notice Pp.(str Jg.message) }
+END

@@ -1,0 +1,14 @@
+; dune -*- mode: dune -*-
+
+(library
+ (name jg_plugin_ocaml)
+ (public_name jg-plugin.ocaml)
+ (libraries
+   rocq-runtime.vernac
+   rocq-runtime.lib
+ )
+)
+
+(rocq.pp
+ (modules jg_plugin)
+  )
