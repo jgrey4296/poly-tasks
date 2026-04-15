@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#set -o errexit
+set -o nounset
+set -o pipefail
+
+# shellcheck disable=SC1091
+[[ -e "$POLY_SRC/lib/lib.bash" ]] && source "$POLY_SRC/lib/lib.bash"
+# shellcheck disable=SC1091
+[[ -e "$(poly-dir)/task-util.bash" ]] && source "$(poly-dir)/task-util.bash"
+
+out="${POLYGLOT_TEMP}"
+site_out="$out/site"
+do_clean=1
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -nc|--no-clean)
+            do_clean=0
+            ;;
+        --out)
+            shift
+            echo "Out: $1"
+            site_out=$(realpath "$site_out/$1")
+            ;;
+        *) # Positional
+            ;;
+    esac
+    shift
+done
+
+if [[ "$do_clean" -gt 0 ]] && [[ -d "${site_out}" ]]; then
+    tdot "docs" "Removing old output directory"
+    rm -r "${site_out}"
+fi

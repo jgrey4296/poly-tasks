@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+# init.bash -*- mode: sh -*-
+#set -o errexit
+set -o nounset
+set -o pipefail
+
+# shellcheck disable=SC1091
+[[ -e "$POLY_SRC/lib/lib.bash" ]] && source "$POLY_SRC/lib/lib.bash"
+# shellcheck disable=SC1091
+[[ -e "$(poly-dir)/task-util.bash" ]] && source "$(poly-dir)/task-util.bash"
+
+
+HELP_TEXT="
+usage: polyglot tool assets init [-h] [args ...]
+
+positional arguments:
+args          :
+
+options:
+-h, --help    : show this help message and exit
+
+"
+
+function make_assets_file () {
+    local exts
+    tdot "init" "Creating ${1}.toml"
+    if [[ -e "${ASSETDIR}/${1}.toml" ]]; then
+        fail "Assets data already exists."
+    fi
+
+    touch    "${ASSETDIR}/${1}.toml"
+    exts=$(fdfind -E .assets -H -t f | sed -rn 's|.*[^/]+\.([^/.]+)$|.\1|p' | sort -u | sed -r '{:q;N;s/\n/, /g;t q}')
+    # TODO get size of directory
+    tdot "init" "Extensions: $exts"
+
+    echo -e "# ${1}.toml -*- mode: Toml -*-
+format_version = '0.1'
+
+[[asset]]
+version     = '0.1'
+name        = \"${1}\"
+author      = \"\"
+source      = \"\"
+license     = \"\"
+extensions  = [\"${exts}\"]
+date        = \"\"
+" > "${ASSETDIR}/${1}.toml"
+
+}
+
+function make_integrity_file () {
+    tdot "init" "Creating ${1}.integrity"
+    touch    "${ASSETDIR}/${1}.integrity"
+
+    ( fdfind \
+        --hidden \
+        --type f \
+        --exclude ".assets" \
+        --exec sha256sum > "${ASSETDIR}/${1}.integrity"
+    )
+
+    count=$(cat < "${ASSETDIR}/${1}.integrity" | wc -l)
+    tdot "init" "Saved ${count} files' sha256sum's."
+}
+
+function make_tree_file () {
+    tdot "init" "Creating ${1}.tree"
+    touch "${ASSETDIR}/${1}.tree"
+
+    ( fdfind \
+        --hidden \
+        --type f \
+        --exclude ".assets" \
+        | tree --fromfile > "$ASSETDIR/${1}.tree"
+    )
+}
+
+function make_notes_file () {
+    tdot "init" "Making Notes file."
+    touch "${ASSETDIR}/${1}.notes"
+
+}
+
+# TODO: check args:
+# TODO --force flag.
+
+# Create the toml file, license file etc
+ASSETDIR="$PWD/.assets"
+name=$(basename "$PWD")
+
+maybe-print-help "leaf" 0 "$HELP_TEXT" "$@"
+mkdir -p "${ASSETDIR}"
+make_assets_file "$name"
+make_integrity_file "$name"
+make_tree_file "$name"
+make_notes_file "$name"

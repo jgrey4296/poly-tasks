@@ -1,6 +1,6 @@
 # Comments in _CoqProject start with # and end with newline
 
--R theories JG-plugin
+-R theories JG_plugin
 
 -generate-meta-for-package jg_plugin.
 
